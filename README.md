@@ -9,10 +9,10 @@ Introduction
 DiningPalis an online web application allowing multiple users to make plans of dining together. After sign-up/login, users can propose their favorite restaurant(s) (with ranks) and find friends (or strangers), who also prefer similar restaurant during that specific time to have dinner together. The features of this application will include locating users,positioning/ranking/auto-recommendrestaurants, with future implementations including chat rooms, usersfilter system, map navigation, coupon search, weather condition check and so on. Though this application can be used to arrange other places of collective activities, such as gym, theaters, shopping malls etc., it is primarily designed to help people find diner mates in an easy and comfortable way.
 
 Presented By:
-ZiyiAn 301371687
-George He 301315033
-BowenWang 301267523
-Zihan Wang301329429
+ZiyiAn 301371687,
+George He 301315033,
+BowenWang 301267523,
+Zihan Wang301329429,
 Chen Zhao 301308092
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
