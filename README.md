@@ -1,10 +1,19 @@
-# node-js-getting-started
+#CMPT276 group project
+
+Background
+
+Nowadays, it is very common for people to dine by themselves due to the fast-paced urban life. We may have got used to it, or more likely just ignored the existence of loneliness in our hearts. To solve such kind of unpleasant experience and let every lonely diner have a sense of belonging, we designed our application, DiningPal. 
 
 Introduction
 
-DiningPal is an online web application allowing multiple users to make plans of dining together. After sign up/login, users can propose their favorite restaurant(s) (with ranks) and find friends (or strangers), who also prefers similar restaurant during that specific time, to have dinner together. The features of this application will include locating the user him/herself, locating/ranking/choosing/auto-(help)choosing restaurants, with future implementations including creation of chat rooms, friend/user filter system, map navigate, coupon search, weather condition check and so on. Though this application can be used to arrange other places of collective activities, such as gym, theaters, shopping malls etc, it is primarily designed to help people find dinner mates in an easy and comfortable way.
+DiningPalis an online web application allowing multiple users to make plans of dining together. After sign-up/login, users can propose their favorite restaurant(s) (with ranks) and find friends (or strangers), who also prefer similar restaurant during that specific time to have dinner together. The features of this application will include locating users,positioning/ranking/auto-recommendrestaurants, with future implementations including chat rooms, usersfilter system, map navigation, coupon search, weather condition check and so on. Though this application can be used to arrange other places of collective activities, such as gym, theaters, shopping malls etc., it is primarily designed to help people find diner mates in an easy and comfortable way.
 
-
+Presented By:
+ZiyiAn 301371687
+Yuliang He 301315033
+BowenWang 301267523
+Zihan Wang301329429
+Chen Zhao 301308092
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
 
