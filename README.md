@@ -10,7 +10,7 @@ DiningPalis an online web application allowing multiple users to make plans of d
 
 Presented By:
 ZiyiAn 301371687
-Yuliang He 301315033
+George He 301315033
 BowenWang 301267523
 Zihan Wang301329429
 Chen Zhao 301308092
