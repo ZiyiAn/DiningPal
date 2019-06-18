@@ -1,4 +1,4 @@
-#CMPT276 group project
+# CMPT276 group project
 
 Background
 
