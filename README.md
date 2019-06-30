@@ -1,4 +1,5 @@
 # CMPT276 group project
+/*** merge conflic test***/
 
 /***
 *
