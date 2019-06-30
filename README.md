@@ -1,5 +1,30 @@
 # CMPT276 group project
 
+/***
+*                    _ooOoo_
+*                   o8888888o
+*                   88" . "88
+*                   (| -_- |)
+*                    O\ = /O
+*                ____/`---'\____
+*              .   ' \\| |// `.
+*               / \\||| : |||// \
+*             / _||||| -:- |||||- \
+*               | | \\\ - /// | |
+*             | \_| ''\---/'' | |
+*              \ .-\__ `-` ___/-. /
+*           ___`. .' /--.--\ `. . __
+*        ."" '< `.___\_<|>_/___.' >'"".
+*       | | : `- \`.;`\ _ /`;.`/ - ` : | |
+*         \ \ `-. \_ __\ /__ _/ .-` / /
+* ======`-.____`-.___\_____/___.-`____.-'======
+*                    `=---='
+*
+* .............................................
+*/
+
+
+
 Background
 
 Nowadays, it is very common for people to dine by themselves due to the fast-paced urban life. We may have got used to it, or more likely just ignored the existence of loneliness in our hearts. To solve such kind of unpleasant experience and let every lonely diner have a sense of belonging, we designed our application, DiningPal. 
