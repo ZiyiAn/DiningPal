@@ -17,13 +17,13 @@ express()
   .get('/signin', async (req,res)=>{
     try{
       const client = await pool.connect()
-      var query = "select * from users where username=($1) and password=($2)";
+      var query = "select * from users where email=($1) and password=($2)";
       var info = [req.query.username, req.query.password];
       await client.query(query, info, async function(err, result){
         if (err||!result.rows[0]){
         	console.log("Query error: " + err );
           /*do something if Username or password incorrect
-          //res.send("Query error: " + err);
+          res.send("Query error: " + err);
           res.render('pages/error',{message:"Username or password incorrect"})
           */
       	}
@@ -56,8 +56,8 @@ express()
   .get('/signup', async (req,res)=>{
     try{
       const client = await pool.connect()
-      var query = "insert into users values($1, $2, $3, $4, FALSE) ";
-      var info = [req.query.username, req.query.password, req.query.question, req.query.answer];
+      var query = "insert into users values($1, $2, $3, FALSE) ";
+      var info = [req.query.username, req.query.password, req.query.email];
       await client.query(query, info, function(err, result){
         if (err){
           /*do something if username exist
