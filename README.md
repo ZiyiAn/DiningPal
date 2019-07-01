@@ -1,5 +1,4 @@
 # CMPT276 group project
-/***rename branch track test***/
 
 Background
 
