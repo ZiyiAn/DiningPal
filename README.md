@@ -1,5 +1,4 @@
 # CMPT276 group project
-/*** merge conflic test***/
 
 /***
 *                    _ooOoo_
@@ -28,7 +27,7 @@
 
 Background
 
-Nowadays, it is very common for people to dine by themselves due to the fast-paced urban life. We may have got used to it, or more likely just ignored the existence of loneliness in our hearts. To solve such kind of unpleasant experience and let every lonely diner have a sense of belonging, we designed our application, DiningPal. 
+Nowadays, it is very common for people to dine by themselves due to the fast-paced urban life. We may have got used to it, or more likely just ignored the existence of loneliness in our hearts. To solve such kind of unpleasant experience and let every lonely diner have a sense of belonging, we designed our application, DiningPal.
 
 Introduction
 
