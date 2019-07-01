@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
+  //ssl: true
 
 });
 
@@ -13,33 +13,76 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
-  
-  .get('/login', async (req,res)=>{
+
+  .get('/signin', async (req,res)=>{
     try{
       const client = await pool.connect()
-      var query = "select * from users where username=($), password=($)";
+      var query = "select * from users where username=($1) and password=($2)";
       var info = [req.query.username, req.query.password];
-      await client.query(query, info, function(err, result){
+      await client.query(query, info, async (err, result)=>{
         if (err||!result.rows[0]){
           console.log("Query error: " + err );
+          /*do something if Username or password incorrect
+          
           // res.send("Query error: " + err);
           res.render('pages/error',{message:"Username or password incorrect"})
-      	}
+          */
+        }
         else {
-          client.release();
-          console.log("login succeed")
+          console.log("signin succeed")
+          
           // res.send("Insert succeed.")
-          res.render('pages/HomePage',{myUser:result})
+          if(result.rows[0].isadmin){
+            console.log("Admin:", result.rows[0])
+            query = "select * from users"
+            await client.query(query, [], function(err2, result2){
+            console.log(result2)
+
+            //res.render('pages/HomePage_Admin',{myAdmin:result.rows[0], allUsers:result2.rows})
+            })
+          }
+          else{
+            //res.render('pages/HomePage',{myUser:result.rows[0]})
+            console.log("User:", result.rows[0])
+          }
+          client.release();
         }
         res.end()
       })
     } catch (err){
-      console.error(err);
+      console.error(err);//database not connected
       // res.send("DB connection error: " + err );
-      res.render('pages/error',{message:""+err})
+      //res.render('pages/error',{message:""+err})
     }
   })
 
-  
+  .get('/signup', async (req,res)=>{
+    try{
+      const client = await pool.connect()
+      var query = "insert into users values($1, $2, $3, $4, FALSE) ";
+      var info = [req.query.username, req.query.password, req.query.question, req.query.answer];
+      await client.query(query, info, function(err, result){
+        if (err){
+          console.log("Query error: " + err );
+          /*do something if username exist
+          console.log("Query error: " + err );
+          // res.send("Query error: " + err);
+          */
+        }
+        else {
+          console.log("signup succeed")
+          console.log(info)
+          //res.render('pages/HomePage',{myUser:info})
+          client.release();
+        }
+        res.end()
+      })
+    } catch (err){
+      console.error(err);//database not connected
+      // res.send("DB connection error: " + err );
+      //res.render('pages/error',{message:""+err})
+    }
+  })
+
 
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
