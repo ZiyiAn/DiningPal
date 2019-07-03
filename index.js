@@ -36,12 +36,12 @@ express()
             await client.query(query, [], function(err2, result2){
             	console.log('admin:',info)
               	console.log('allusers:',result2)
-              //res.render('pages/HomePage_Admin',{myAdmin:result.rows[0], allUsers:result2.rows})
+              res.render('pages/homepage_admin',{myAdmin:result.rows[0], allUsers:result2.rows})
             })
           }
           else{
           	console.log("user:",result.rows[0])
-            //res.render('pages/HomePage',{myUser:result.rows[0]})
+            res.render('pages/homepage',{myUser:result.rows[0]})
           }
           client.release();
         }
@@ -69,7 +69,7 @@ express()
       	}
         else {
           console.log("signup succeed")
-          //res.render('pages/HomePage',{myUser:info})
+          res.render('pages/homepage',{myUser:info})
           client.release();
         }
         res.end()
