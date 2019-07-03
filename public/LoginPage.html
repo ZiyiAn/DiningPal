@@ -10,7 +10,22 @@
 <meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Meta-Tags -->
-<script src = "signup.js"></script>
+<script>
+function valid_pass(){
+
+  var data = document.getElementById('form2')
+  var warn = document.getElementById('passwarn')
+  var pass = data[2].value
+  var pass_conf = data[3].value
+  console.log(pass)
+  console.log(pass_conf)
+  if (pass!=pass_conf){
+    warn.innerHTML = "Passwords do not match!"
+    return false}
+  else {warn.innerHTML = ""
+  return True}
+}
+</script>
 <link href="login/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 
 <!-- Style --> <link rel="stylesheet" href="login/css/style.css" type="text/css" media="all">

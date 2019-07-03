@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
+  // ssl: true
 
 });
 
@@ -38,7 +38,7 @@ express()
               //console.log('allusers:',result2)
               const results = { 'results': (result) ? result.rows : null};
               res.render('pages/homepage_admin',results)
-            
+
           }
           else{
           	console.log("user:",result.rows[0].username)
@@ -99,7 +99,7 @@ express()
               console.log('admin:',info[0])
               res.render('homepage_admin',{allUsers:result.rows})
             })
-          
+
           client.release();
         res.end()
         }
@@ -107,6 +107,6 @@ express()
       console.error(err);
       res.render('pages/error',{message:"Database connection fail"})
     }
-    
+
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
