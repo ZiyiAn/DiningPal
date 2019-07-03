@@ -16,8 +16,6 @@ express()
 
   .get('/signin', async (req,res)=>{
     try{
-      // console.log(req.query.email)
-      // console.log(req.query.password)
       const client = await pool.connect()
       var query = "select * from users where email=($1) and password=($2)";
       var info = [req.query.email, req.query.password];
@@ -35,15 +33,16 @@ express()
           // res.send("Insert succeed.")
           if(result.rows[0].isadmin){
             query = "select * from users"
-            await client.query(query, [], function(err2, result2){
+            const result = await client.query(query)
             	console.log('admin:',info[0])
               //console.log('allusers:',result2)
-              res.render('pages/homepage_admin',{myAdmin:result.rows[0], allUsers:result2.rows})
-            })
+              const results = { 'results': (result) ? result.rows : null};
+              res.render('pages/homepage_admin',results)
+            
           }
           else{
           	console.log("user:",result.rows[0].username)
-            res.render('pages/homepage',{myUser:result.rows[0]})
+            res.redirect('/homepage.html')
           }
           client.release();
         }
@@ -73,7 +72,7 @@ express()
         else {
           console.log("signup succeed")
           var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.render('pages/homepage',{myUser:userinfo})
+          res.redirect('homepage.html')
           client.release();
         }
         res.end()
@@ -98,15 +97,14 @@ express()
             query = "select * from users"
             await client.query(query, [], function(err2, result2){
               console.log('admin:',info[0])
-              res.render('pages/homepage_admin',{allUsers:result.rows})
+              res.render('homepage_admin',{allUsers:result.rows})
             })
           
           client.release();
         res.end()
         }
     } catch (err){
-      console.error(err);//database not connected
-      // res.send("DB connection error: " + err );
+      console.error(err);
       res.render('pages/error',{message:"Database connection fail"})
     }
     
