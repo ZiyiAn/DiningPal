@@ -16,6 +16,8 @@ express()
 
   .get('/signin', async (req,res)=>{
     try{
+      // console.log(req.query.email)
+      // console.log(req.query.password)
       const client = await pool.connect()
       var query = "select * from users where email=($1) and password=($2)";
       var info = [req.query.email, req.query.password];
@@ -25,8 +27,8 @@ express()
           console.log(result.rows[0] )
           /*do something if Username or password incorrect
           res.send("Query error: " + err);
-          res.render('pages/error',{message:"Username or password incorrect"})
           */
+          res.render('pages/error',{message:"E-mail or password incorrect"})
       	}
         else {
           console.log("signin succeed")
@@ -34,13 +36,13 @@ express()
           if(result.rows[0].isadmin){
             query = "select * from users"
             await client.query(query, [], function(err2, result2){
-            	console.log('admin:',info)
-              	console.log('allusers:',result2)
+            	console.log('admin:',info[0])
+              //console.log('allusers:',result2)
               res.render('pages/homepage_admin',{myAdmin:result.rows[0], allUsers:result2.rows})
             })
           }
           else{
-          	console.log("user:",result.rows[0])
+          	console.log("user:",result.rows[0].username)
             res.render('pages/homepage',{myUser:result.rows[0]})
           }
           client.release();
@@ -50,7 +52,7 @@ express()
     } catch (err){
       console.error(err);//database not connected
       // res.send("DB connection error: " + err );
-      //res.render('pages/error',{message:""+err})
+      res.render('pages/error',{message:"Database connection fail"})
 
     }
   })
@@ -62,23 +64,51 @@ express()
       var info = [req.query.username, req.query.password, req.query.email];
       await client.query(query, info, function(err, result){
         if (err){
-          /*do something if username exist
           console.log("Query error: " + err );
+          /*do something if username exist
           // res.send("Query error: " + err);
           */
+          res.render('pages/error',{message:"E-mail already exist"})
       	}
         else {
           console.log("signup succeed")
-          res.render('pages/homepage',{myUser:info})
+          var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
+          res.render('pages/homepage',{myUser:userinfo})
           client.release();
         }
         res.end()
       })
     } catch (err){
       console.error(err);//database not connected
-      //res.render('pages/error',{message:""+err})
+      res.render('pages/error',{message:"Database connection fail"})
     }
   })
 
-
+  .get('/database', async(req,res)=>{
+    try{
+      const client = await pool.connect()
+      var query = "select * from users";
+      info = []
+        if (err||!result.rows[0]){
+          console.log("Query error: " + err )
+          console.log(result.rows[0])
+          res.redirect('index.html')
+        }
+        else {
+            query = "select * from users"
+            await client.query(query, [], function(err2, result2){
+              console.log('admin:',info[0])
+              res.render('pages/homepage_admin',{allUsers:result.rows})
+            })
+          
+          client.release();
+        res.end()
+        }
+    } catch (err){
+      console.error(err);//database not connected
+      // res.send("DB connection error: " + err );
+      res.render('pages/error',{message:"Database connection fail"})
+    }
+    
+  })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
