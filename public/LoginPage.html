@@ -4,12 +4,28 @@
 <head>
 <title>DiningPal</title>
 <!-- Meta-Tags -->
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="keywords" content="Existing Login Form Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design">
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //Meta-Tags -->
+<script>
+function valid_pass(){
 
+  var data = document.getElementById('form2')
+  var warn = document.getElementById('passwarn')
+  var pass = data[2].value
+  var pass_conf = data[3].value
+  console.log(pass)
+  console.log(pass_conf)
+  if (pass!=pass_conf){
+    warn.innerHTML = "Passwords do not match!"
+    return false}
+  else {warn.innerHTML = ""
+  return True}
+}
+</script>
 <link href="login/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
 
 <!-- Style --> <link rel="stylesheet" href="login/css/style.css" type="text/css" media="all">
@@ -36,17 +52,17 @@
 				</nav>
 	</div> -->
 			<!-- <a href="#" class="right_bt" id="activator"><img src="../images/nav.png" alt=""/></a> -->
-				<div class="box" id="box"> 
+				<div class="box" id="box">
 				   <div class="box_content_center"  style='height:230px; '>
 					   <div class="menu_box_list">
 						   <ul>
 							   <li><a href="../index.html#home" class="scroll">Home</a></li>
-<!-- 							   <li class="active"><a href="../index.html#about" class="scroll">About</a></li> 
+<!-- 							   <li class="active"><a href="../index.html#about" class="scroll">About</a></li>
 							   <li><a href="../index.html#contact" class="scroll">Contact</a></li> -->
 							</ul>
 						</div>
 						<a class="boxclose" id="boxclose"><img src="images/close.png" alt=""/></a>
-					  </div>                
+					  </div>
 					</div>
 					<script type="text/javascript" src="login/js/easing.js"></script>
 					    <script type="text/javascript">
@@ -60,19 +76,19 @@
 										});
 									});
 									$(document).ready(function(){
-									
+
 									//Hide (Collapse) the toggle containers on load
-									$(".toggle_container").hide(); 
-									
+									$(".toggle_container").hide();
+
 									//Switch the "Open" and "Close" state per click then slide up/down (depending on open/close state)
 									$(".trigger").click(function(){
 										$(this).toggleClass("active").next().slideToggle("slow");
 										return false; //Prevent the browser jump to the link anchor
 									});
-									
+
 									});
 						</script>
-								
+
 
 	<div class="w3layoutscontaineragileits" style='margin-top: 13%'>
 	<h2>Welcome Back<br> My Pal</h2>
@@ -93,24 +109,28 @@
 			</div>
 		</form>
 	</div>
-	
+
 	<!-- for register popup -->
 	<div id="small-dialog1" class="mfp-hide">
 		<div class="contact-form1">
 			<div class="contact-w3-agileits">
 				<h3>Register Form</h3>
+<<<<<<< HEAD
 				<form id = 'form2' action="signup" onsubmit="return validRegister()">
+=======
+				<form id = 'form2' action="signup" onsubmit="return valid_pass()">
+>>>>>>> be55a027cdc584d75c53e80324b8feaadb11c73d
 						<div class="form-sub-w3ls">
 							<input name="username" placeholder="User Name"  type="text" required>
-			
-			
+
+
 							<div class="icon-agile">
 								<i class="fa fa-user" aria-hidden="true"></i>
 							</div>
 						</div>
 						<div class="form-sub-w3ls">
 							<input name="email" placeholder="Email" class="mail" type="email" required>
-							
+
 							<div class="icon-agile">
 								<i class="fa fa-envelope-o" aria-hidden="true"></i>
 							</div>
@@ -130,24 +150,26 @@
 <!-- 					<div class="login-check">
 						 <label class="checkbox"><input type="checkbox" name="checkbox" checked="">I Accept Terms & Conditions</label>
 					</div> -->
+					<span id = "passwarn" style="color:cyan;"></span>
+
 					<div class="submit-w3l">
 						<input type="submit" value="Register">
 					</div>
 					<p id='error_occur'></p>
 				</form>
 			</div>
-		</div>	
+		</div>
 	</div>
 	<!-- //for register popup -->
-	
+
 	<div class="w3footeragile">
 		<p> &copy; 2019 DiningPal Team. All Rights Reserved | Design by Team Segfault</p>
 	</div>
 
-	
+
 	<script type="text/javascript" src="login/js/jquery-2.1.4.min.js"></script>
 
-	<!-- pop-up-box-js-file -->  
+	<!-- pop-up-box-js-file -->
 		<script src="login/js/jquery.magnific-popup.js" type="text/javascript"></script>
 	<!--//pop-up-box-js-file -->
 	<script>
@@ -163,7 +185,7 @@
 			removalDelay: 300,
 			mainClass: 'my-mfp-zoom-in'
 		});
-																		
+
 		});
 	</script>
 
@@ -171,5 +193,3 @@
 <!-- //Body -->
 
 </html>
-
-
