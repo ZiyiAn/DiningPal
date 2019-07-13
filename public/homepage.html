@@ -1,3 +1,9 @@
+<?php
+header("Cache-Control: no-cache, no-store, must-revalidate"); // HTTP 1.1.
+header("Pragma: no-cache"); // HTTP 1.0.
+header("Expires: 0");
+session_start();
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -35,6 +41,13 @@
               
                 <span class="logout-spn" >
                   <a href="index.html" style="color:#fff;">LOGOUT</a>  
+                  <?php
+                  // remove all session variables
+                  session_unset(); 
+
+                  // destroy the session 
+                  session_destroy(); 
+                  ?>
 
                 </span>
             </div>
