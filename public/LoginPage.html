@@ -14,12 +14,12 @@
 
 <!-- Style --> <link rel="stylesheet" href="login/css/style.css" type="text/css" media="all">
 
-
+<script src="login/valid_test.js"></script>
 </head>
 <!-- //Head -->
 
 <!-- Body -->
-<body>
+<body onload="myfunctionaaa()">
 
 <!-- 	<div class="w3layoutscontaineragileits">
 				<nav class="navbar navbar-default">
@@ -76,7 +76,7 @@
 
 	<div class="w3layoutscontaineragileits" style='margin-top: 13%'>
 	<h2>Welcome Back<br> My Pal</h2>
-		<form action="signin">
+		<form action="signin" onsubmit="return validSign()">
 			<input type="email" Name="email" placeholder="EMAIL" required>
 			<input type="password" Name="password" placeholder="PASSWORD" required>
 <!-- 			<ul class="agileinfotickwthree">
@@ -99,7 +99,7 @@
 		<div class="contact-form1">
 			<div class="contact-w3-agileits">
 				<h3>Register Form</h3>
-				<form id = 'form2' action="signup" >
+				<form id = 'form2' action="signup" onsubmit="return validRegister()">
 						<div class="form-sub-w3ls">
 							<input name="username" placeholder="User Name"  type="text" required>
 			
@@ -133,6 +133,7 @@
 					<div class="submit-w3l">
 						<input type="submit" value="Register">
 					</div>
+					<p id='error_occur'></p>
 				</form>
 			</div>
 		</div>	
