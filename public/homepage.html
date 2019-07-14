@@ -20,9 +20,9 @@ session_start();
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
-     
-           
-          
+
+
+
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
@@ -36,33 +36,27 @@ session_start();
                         <img style="max-height: 60px;" src="assets/img/b1.jpg" />
 
                     </a>
-                    
-                </div>
-              
-                <span class="logout-spn" >
-                  <a href="index.html" style="color:#fff;">LOGOUT</a>  
-                  <?php
-                  // remove all session variables
-                  session_unset(); 
 
-                  // destroy the session 
-                  session_destroy(); 
-                  ?>
+                </div>
+              <form action="logout">
+                <span class="logout-spn" >
+                  <input type='submit' style="color:#fff" value='LOGOUT'>
 
                 </span>
+              </form>
             </div>
         </div>
         <!-- /. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
-                 
+
 
 
                     <li class="active-link">
                         <a href="homepage.html" ><i class="fa fa-desktop "></i>Dashboard </a>
                     </li>
-                   
+
 
                     <li>
                         <a href="ui.html"><i class="fa fa-table "></i>Restaurant Nearby  </a>
@@ -88,7 +82,7 @@ session_start();
                      <li>
                         <a href="#"><i class="fa fa-edit "></i>Talk </a>
                     </li>
-                    
+
                 </ul>
                             </div>
 
@@ -99,9 +93,9 @@ session_start();
             <div id="page-inner">
                 <div class="row">
                     <div class="col-lg-12">
-                     <h2>DASHBOARD</h2>   
+                     <h2>DASHBOARD</h2>
                     </div>
-                </div>              
+                </div>
                  <!-- /. ROW  -->
                   <hr />
                 <div class="row">
@@ -109,10 +103,10 @@ session_start();
                         <div class="alert alert-info">
                              <strong>Welcome ! </strong> Where would you like to dine Today?
                         </div>
-                       
+
                     </div>
                     </div>
-                  <!-- /. ROW  --> 
+                  <!-- /. ROW  -->
                             <div class="row text-center pad-top">
                   <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -121,10 +115,10 @@ session_start();
                       <h4>Check Data</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>  -->
-                 
+
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="blank.html" >
@@ -132,8 +126,8 @@ session_start();
                       <h4>Mail Box</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -142,8 +136,8 @@ session_start();
                       <h4>Report Issues</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -152,8 +146,8 @@ session_start();
                       <h4>Friends</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -162,8 +156,8 @@ session_start();
                       <h4>Admin </h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div> -->
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -172,13 +166,13 @@ session_start();
                       <h4>Support</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
               </div>
-                 <!-- /. ROW  --> 
+                 <!-- /. ROW  -->
                 <div class="row text-center pad-top">
-                 
+
                  <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="blank.html" >
@@ -186,8 +180,8 @@ session_start();
                       <h4>All Docs</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div> -->
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -196,8 +190,8 @@ session_start();
                       <h4>Settings</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -206,8 +200,8 @@ session_start();
                       <h4>Live Talk</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -216,8 +210,8 @@ session_start();
                       <h4>Notifications </h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -226,8 +220,8 @@ session_start();
                       <h4>Launch</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div> -->
                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -236,14 +230,14 @@ session_start();
                       <h4>Profile</h4>
                       </a>
                       </div>
-                     
-                     
-                  </div> 
-              </div>   
-                  <!-- /. ROW  -->    
+
+
+                  </div>
+              </div>
+                  <!-- /. ROW  -->
 <!--                  <div class="row text-center pad-top">
-                   
-                 
+
+
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="blank.html" >
@@ -251,8 +245,8 @@ session_start();
                       <h4>Mail Box</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -261,8 +255,8 @@ session_start();
                       <h4>New Issues</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -271,8 +265,8 @@ session_start();
                       <h4>See Users</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -281,8 +275,8 @@ session_start();
                       <h4>Admin </h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -291,8 +285,8 @@ session_start();
                       <h4>Support</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -301,11 +295,11 @@ session_start();
                       <h4>Check Data</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
               </div> -->
-                 <!-- /. ROW  -->  
+                 <!-- /. ROW  -->
 <!--                  <div class="row text-center pad-top">
                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -314,8 +308,8 @@ session_start();
                       <h4>Launch</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -324,8 +318,8 @@ session_start();
                       <h4>All Docs</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -334,8 +328,8 @@ session_start();
                       <h4>Settings</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -344,8 +338,8 @@ session_start();
                       <h4>Live Talk</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -354,10 +348,10 @@ session_start();
                       <h4>Notifications </h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
-                  
+
                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="blank.html" >
@@ -365,15 +359,15 @@ session_start();
                       <h4>Register User</h4>
                       </a>
                       </div>
-                     
-                     
-                  </div> 
+
+
+                  </div>
               </div>    -->
-                  <!-- /. ROW  -->  
+                  <!-- /. ROW  -->
                 <!-- <div class="row text-center pad-top">
-                   
-                 
-                  
+
+
+
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
                            <a href="blank.html" >
@@ -381,8 +375,8 @@ session_start();
                       <h4>New Issues</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -391,8 +385,8 @@ session_start();
                       <h4>See Users</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -401,8 +395,8 @@ session_start();
                       <h4>Admin </h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                   <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -411,8 +405,8 @@ session_start();
                       <h4>Support</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div>
                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -421,8 +415,8 @@ session_start();
                       <h4>Check Data</h4>
                       </a>
                       </div>
-                     
-                     
+
+
                   </div> -->
                     <!-- <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
                       <div class="div-square">
@@ -431,36 +425,36 @@ session_start();
                       <h4>Mail Box</h4>
                       </a>
                       </div>
-                     
-                     
-                  </div> 
+
+
+                  </div>
               </div> -->
-                 <!-- /. ROW  -->   
+                 <!-- /. ROW  -->
 				  <div class="row">
                     <div class="col-lg-12 ">
 					<br/>
                         <!-- <div class="alert alert-danger">
                              <strong>Want More Icons Free ? </strong> Checkout fontawesome website and use any icon <a target="_blank" href="http://fortawesome.github.io/Font-Awesome/icons/">Click Here</a>.
                         </div> -->
-                       
+
                     </div>
                     </div>
-                  <!-- /. ROW  --> 
+                  <!-- /. ROW  -->
     </div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->
         </div>
     <div class="footer">
-      
-    
+
+
             <div class="row">
                 <div class="col-lg-12" >
                     <p> &copy; 2019 DiningPal Team. All Rights Reserved | Design by Team Segfault</p>
                 </div>
             </div>
         </div>
-          
+
 
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
@@ -470,7 +464,7 @@ session_start();
     <script src="assets/js/bootstrap.min.js"></script>
       <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
-    
-   
+
+
 </body>
 </html>
