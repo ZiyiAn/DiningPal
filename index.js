@@ -6,7 +6,7 @@ var bodyParser = require('body-parser')
 
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
-const sessionSave = require('session-file-store')(session)
+const sessionFiles = require('session-file-store')(session)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   // ssl: true
@@ -21,7 +21,7 @@ express()
     secret: 'dining pal',
     //resave: true,
     saveUninitialized: false,
-    store: new sessionSave({loginFunc:()=>{}}),
+    store: new sessionFiles({logFn:()=>{}}),
     cookie: { user:"default", maxAge:3600000 }
   }))
   .set('views', path.join(__dirname, 'views'))
@@ -169,12 +169,12 @@ express()
   })
 
   .get('/logout', (req, res)=>{
-    console.log("logging out")
     req.session.destroy((err)=>{
       if(err){
         console.log("Fail to destroy cookie")
         res.render('pages/error',{message:"Fail to destroy cookie"})
       }
+      console.log("logging out")
       res.clearCookie()
       res.redirect('/')
     })
