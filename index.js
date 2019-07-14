@@ -10,12 +10,11 @@ const sessionFiles = require('session-file-store')(session)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   // ssl: true
-
 });
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
-  //.use(bodyParser.json())
+  .use(bodyParser.json())
   .use(cookieParser('dining pal'))
   .use(session({
     secret: 'dining pal',
@@ -47,7 +46,28 @@ express()
         //res.render('pages/index')
         res.redirect('/startpage.html')
     }
+  })
 
+  .get('/home', (req, res ) => {
+    //console.log("Welcome back")
+    var myUser = req.session.myUser
+    //var isAdmin = req.session.isAdmin
+    if(myUser){
+      console.log(myUser)//show session content
+      if(myUser.isadmin){
+        console.log("homepage_admin. adminname:"+myUser.username)
+        console.log("All users:"+req.session.allUsers)
+        res.render('pages/homepage_admin',req.session.allUsers)
+      }
+      else {
+        console.log("homepage_user. username:"+myUser.username)
+        res.redirect('/homepage.html')
+      }
+    }
+    else {
+        //res.render('pages/index')
+        res.redirect('/startpage.html')
+    }
   })
 
   .get('/signin', async (req,res)=>{
@@ -113,7 +133,6 @@ express()
       console.error(err);//database not connected
       // res.send("DB connection error: " + err );
       res.render('pages/error',{message:"Database connection fail"})
-
     }
   })
 
