@@ -21,7 +21,7 @@ express()
     secret: 'dining pal',
     //resave: true,
     saveUninitialized: false,
-    store: new sessionFiles({logFn:()=>{}}),
+    store: new sessionFiles({logFn:()=>{}}),//replace the logFn option with an empty function
     cookie: { user:"default", maxAge:3600000 }
   }))
   .set('views', path.join(__dirname, 'views'))
