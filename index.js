@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
+const cookieParser
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   // ssl: true
@@ -82,6 +83,14 @@ express()
       res.render('pages/error',{message:"Database connection fail"})
     }
   })
+
+
+  .get('/logout', async (req,res)=>{
+      console.log('temp_nothing')
+    })
+
+
+
 
   .get('/database', async(req,res)=>{
     try{
