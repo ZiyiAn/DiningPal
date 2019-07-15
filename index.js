@@ -11,7 +11,7 @@ const sessionFiles = require('session-file-store')(session)
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  // ssl: true
+  ssl: true
 });
 
 express()
@@ -23,7 +23,7 @@ express()
     //resave: true,
     saveUninitialized: false,
     store: new sessionFiles({logFn:()=>{}}),//replace the logFn option with an empty function
-    cookie: { user:"default", maxAge:3600000 }
+    cookie: { user:"default", maxAge:360000 }
   }))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
