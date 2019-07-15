@@ -15,8 +15,6 @@
 </head>
 <body>
 
-
-
     <div id="wrapper">
          <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="adjust-nav">
@@ -26,16 +24,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">
-                        <img style="max-height: 60px;" src="assets/img/b1.jpg" />
+
+                    <span class="logout-spn" >
+                    <a href="startpage.html" style="color:#fff;">
+                        Home
 
                     </a>
+                	</span>
 
                 </div>
               <form action="logout">
                 <span class="logout-spn" >
-                 <!--<a href="startpage.html" style="color:#fff;">LOGOUT</a>-->
-                <input type='submit' style="color:#fff" value='LOGOUT'>
+                 <a href="startpage.html" style="color:#fff;" onclick="submit()">LOGOUT</a>
+                
                 </span>
               </form>
             </div>
@@ -49,6 +50,7 @@
 
                     <li class="active-link">
                         <a href="/" ><i class="fa fa-desktop "></i>Dashboard </a>
+
                     </li>
 
 

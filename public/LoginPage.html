@@ -35,6 +35,15 @@ function valid_pass(){
 <!-- //Head -->
 
 <!-- Body -->
+<!-- <body onload='function(){
+	$.get("/checkLogin",function(data){
+		if(data.isLogin){
+			window.location.href="/"
+		}else{
+			window.location.href="LoginPage.html"
+		}
+	})
+}'> -->
 <body>
 
 <!-- 	<div class="w3layoutscontaineragileits">
@@ -53,7 +62,7 @@ function valid_pass(){
 	</div> -->
 			<!-- <a href="#" class="right_bt" id="activator"><img src="../images/nav.png" alt=""/></a> -->
 				<div class="box" id="box">
-				   <div class="box_content_center"  style='height:230px; '>
+				   <div class="box_content_center"  style='height:230px; margin-top: 50px'>
 					   <div class="menu_box_list">
 						   <ul>
 							   <li><a href="../startpage.html#home" class="scroll">Home</a></li>
@@ -188,7 +197,16 @@ function valid_pass(){
 
 		});
 	</script>
-
+<script type="text/javascript">
+//window.alert('1');
+$.get("/checkLogin",function(data){
+	//window.alert('2')
+	if(data.isLogin){
+		window.location.href='/';
+	}
+});
+//window.alert('3');
+</script>
 </body>
 <!-- //Body -->
 
