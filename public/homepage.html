@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -33,16 +34,16 @@
 
                 </div>
 
-              <form action="logout">
+              <form id = 'logout_form' action="logout">
                 <span class="logout-spn" >
-                  <input type='submit' style="color:#fff" value='LOGOUT'>
-
+                 <a href="startpage.html" style="color:#fff;" onclick="document.getElementById('logout_form').submit()">LOGOUT</a>
+                
                 </span>
               </form>
+              
             </div>
         </div>
         <!-- /. NAV TOP  -->
-        //<form id="redirect homepage" action="home"></form>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
@@ -50,7 +51,7 @@
 
 
                     <li class="active-link">
-                        <a href="/" ><i class="fa fa-desktop "></i>Dashboard </a>
+                        <a href="homepage.html" ><i class="fa fa-desktop "></i>Dashboard </a>
                     </li>
 
 
@@ -63,29 +64,26 @@
 
 
                     <li>
-                        <a href="blank.html"><i class="fa fa-qrcode "></i>Favorite</a>
+                        <a href="#"><i class="fa fa-qrcode "></i>Favorite</a>
                     </li>
                     <li>
-                        <a href="blank.html"><i class="fa fa-bar-chart-o"></i>Activity</a>
+                        <a href="#"><i class="fa fa-bar-chart-o"></i>Activity</a>
                     </li>
 
                     <li>
-                        <a href="blank.html"><i class="fa fa-edit "></i>Deals&Offers </a>
+                        <a href="#"><i class="fa fa-edit "></i>Deals&Offers </a>
                     </li>
                     <li>
-                        <a href="blank.html"><i class="fa fa-table "></i>Events</a>
+                        <a href="#"><i class="fa fa-table "></i>Events</a>
                     </li>
                      <li>
-                        <a href="blank.html"><i class="fa fa-edit "></i>Talk </a>
+                        <a href="#"><i class="fa fa-edit "></i>Talk </a>
                     </li>
 
                 </ul>
                             </div>
 
         </nav>
-        </form>
-
-
         <!-- /. NAV SIDE  -->
         <div class="copyrights">Collect from <a href="http://www.moobnn.com/"  title="网站模板">网站模板</a></div>
         <div id="page-wrapper" >
