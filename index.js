@@ -193,6 +193,18 @@ express()
     }
   })
 
+  .post('/get_Username',(req, res)=>{
+    var myUser = req.session.myUser
+    if(myUser){
+      console.log('user name sent!')
+      res.send({message: myUser.username})
+    }
+    else{
+      console.log('failed')
+    }
+  })
+
+
   .get('/logout', (req, res)=>{
     req.session.destroy((err)=>{
       if(err){
