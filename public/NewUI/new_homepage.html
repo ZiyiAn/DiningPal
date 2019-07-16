@@ -50,7 +50,7 @@
         <div class="sidebar-left">
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
-                <a href="index.html">
+                <a href="new_homepage.html">
                     <img src="img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">DiningPal</span>
@@ -68,7 +68,7 @@
                     <li>
                         <h3 class="navigation-title">Navigation</h3>
                     </li>
-                    <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                    <li class="active"><a href="new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                     <li><a href="table-dynamic.html"><i class="fa fa-th-list"></i> <span>User Database</span></a>
                     </li>
 
@@ -159,7 +159,7 @@
 
                 <!--logo and logo icon start-->
                 <div class="logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="index.html">
+                    <a href="new_homepage.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                         <span class="brand-name">DiningPal</span>
@@ -167,7 +167,7 @@
                 </div>
 
                 <div class="icon-logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="index.html">
+                    <a href="new_homepage.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                     </a>
@@ -809,10 +809,10 @@
         });
     });
 
-    $(window).on("resize",function(){
-        var owl = $("#news-feed").data("owlCarousel");
-        owl.reinit();
-    });
+    // $(window).on("resize",function(){
+    //     var owl = $("#news-feed").data("owlCarousel");
+    //     owl.reinit();
+    // });
 
     function getloc(){
       if(navigator.geolocation){
@@ -821,7 +821,7 @@
           lng = String(position.coords.longitude);
           console.debug(position);
           $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&appid=405aedac1b82d1ee20b4d0b217ac3079", function(data){
-            console.log(data);
+            // console.log(data);
             document.getElementById("temperature").innerText = Math.round(data.main.temp - 273.15);
             document.getElementById("weather").innerText = data.weather[0].description;
             document.getElementById("location").innerText = data.name+", "+data.sys.country;
@@ -830,7 +830,7 @@
           window.alert(err);
         });
       }else{
-        window.alert('不支持获取GPS地理位置')
+        window.alert('GPS Location feature not supported ')
       }
     }
     getloc();
