@@ -35,6 +35,15 @@ function valid_pass(){
 <!-- //Head -->
 
 <!-- Body -->
+<!-- <body onload='function(){
+	$.get("/checkLogin",function(data){
+		if(data.isLogin){
+			window.location.href="/"
+		}else{
+			window.location.href="LoginPage.html"
+		}
+	})
+}'> -->
 <body>
 
 <!-- 	<div class="w3layoutscontaineragileits">
@@ -46,17 +55,17 @@ function valid_pass(){
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<h1><a  href="index.html">DiningPal</a></h1>
+						<h1><a  href="startpage.html">DiningPal</a></h1>
 					</div>
 
 				</nav>
 	</div> -->
 			<!-- <a href="#" class="right_bt" id="activator"><img src="../images/nav.png" alt=""/></a> -->
 				<div class="box" id="box">
-				   <div class="box_content_center"  style='height:230px; '>
+				   <div class="box_content_center"  style='height:230px; margin-top: 50px'>
 					   <div class="menu_box_list">
 						   <ul>
-							   <li><a href="../index.html#home" class="scroll">Home</a></li>
+							   <li><a href="../public/startpage.html" class="scroll">Home</a></li>
 <!-- 							   <li class="active"><a href="../index.html#about" class="scroll">About</a></li>
 							   <li><a href="../index.html#contact" class="scroll">Contact</a></li> -->
 							</ul>
@@ -92,7 +101,7 @@ function valid_pass(){
 
 	<div class="w3layoutscontaineragileits" style='margin-top: 13%'>
 	<h2>Welcome Back<br> My Pal</h2>
-		<form action="signin">
+		<form action="signin" onsubmit="return validSign()">
 			<input type="email" Name="email" placeholder="EMAIL" required>
 			<input type="password" Name="password" placeholder="PASSWORD" required>
 <!-- 			<ul class="agileinfotickwthree">
@@ -115,7 +124,11 @@ function valid_pass(){
 		<div class="contact-form1">
 			<div class="contact-w3-agileits">
 				<h3>Register Form</h3>
+
+				<form id = 'form2' action="signup" onsubmit="return validRegister()">
+
 				<form id = 'form2' action="signup" onsubmit="return valid_pass()">
+
 						<div class="form-sub-w3ls">
 							<input name="username" placeholder="User Name"  type="text" required>
 
@@ -151,6 +164,7 @@ function valid_pass(){
 					<div class="submit-w3l">
 						<input type="submit" value="Register">
 					</div>
+					<p id='error_occur'></p>
 				</form>
 			</div>
 		</div>
@@ -183,7 +197,16 @@ function valid_pass(){
 
 		});
 	</script>
-
+<script type="text/javascript">
+//window.alert('1');
+$.get("/checkLogin",function(data){
+	//window.alert('2')
+	if(data.isLogin){
+		window.location.href='/';
+	}
+});
+//window.alert('3');
+</script>
 </body>
 <!-- //Body -->
 
