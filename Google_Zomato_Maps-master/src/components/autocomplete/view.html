@@ -1,0 +1,11 @@
+<div id="autocomplete-wrapper">
+  <ul data-bind="foreach: $parent.autoList()">
+    <li class="autocomplete-item" data-bind="event: {mousedown: $parent.handleItemClick}">
+      <i class="material-icons" data-bind="text: icon"></i>
+      <div class="autocomplete-info">
+        <h6 class="text-ellipsis" data-bind="text: main"></h6>
+        <span class="text-ellipsis" data-bind="text: sub"></span>
+      </div>
+    </li>
+  </ul>
+</div>

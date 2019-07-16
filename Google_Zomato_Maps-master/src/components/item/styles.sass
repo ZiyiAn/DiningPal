@@ -1,0 +1,246 @@
+.item-back
+  position: absolute
+  left: 7px
+  top: 55px
+  z-index: 100
+  display: block
+  width: 386px
+  height: 31px
+  background-color: white
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2)
+  border-top: 1px solid #E6E6E6
+  border-radius: 0 0 2px 2px
+  font-size: 12px
+  text-decoration: none
+  padding: 8px 16px
+
+  @media screen and (max-width: 751px)
+    width: calc(100% - 14px)
+
+.item-img
+  width: 100%
+  height: 30%
+  max-height: 256px
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+
+
+.item-header
+  position: relative
+  height: 112px
+  color: white
+  padding: 20px 18px
+
+  h3
+    margin: 0
+    font-weight: 300
+    font-size: 20px
+    padding: 0 0 5px
+
+  p
+    text-transform: capitalize
+    font-size: 14px
+    margin: 0
+    padding: 5px 0 0
+    -webkit-font-smoothing: antialiased
+
+  .right
+    -webkit-font-smoothing: antialiased
+    margin-left: 10px
+
+  .left
+    margin-right: 5px
+
+
+.item-fab
+  position: absolute
+  top: 0
+  right: 23px
+  background-color: white
+  transform: translateY(-50%)
+
+
+.item-options
+  height: 73px
+  background-color: white
+  display: flex
+  justify-content: space-between
+  border-top: 1px solid #eee
+
+  a
+    text-decoration: none
+    flex-grow: 1
+    flex-basis: 0
+    display: flex
+    flex-direction: column
+    padding: 13px 0
+    justify-content: space-between
+    align-items: center
+    font-size: 14px
+    -webkit-font-smoothing: antialiased
+    text-transform: uppercase
+
+    &:visited
+      color: inherit
+
+
+.item-info
+  background-color: white
+  border-top: 1px solid #eee
+
+  p
+    margin: 0
+    font-size: 14px
+    -webkit-font-smoothing: antialiased
+    color: rgba(0,0,0,0.7)
+    font-style: italic
+    padding: 10px 19px
+
+.item-info-item
+  display: flex
+  align-items: center
+  padding: 10px 19px
+  color: rgba(0,0,0,0.7)
+  font-size: 14px
+  -webkit-font-smoothing: antialiased
+
+  i
+    font-size: 20px
+    margin-right: 26px
+
+
+.item-review
+  background-color: white
+  border-top: 1px solid #eee
+  padding: 10px 19px
+
+  h3
+    -webkit-font-smoothing: antialiased
+    margin: 0
+    color: #666
+    font-weight: 400
+    font-size: 18px
+    padding-bottom: 10px
+
+.item-review-info
+  display: flex
+  align-items: flex-start
+  padding: 10px 0
+  height: 137px
+  width: 100%
+
+.item-histogram
+  width: 157px
+  margin-right: 22px
+
+.bar-section
+  display: flex
+  align-items: center
+  font-size: 14px
+  color: #666
+  -webkit-font-smoothing: antialiased
+
+  .bar
+    height: 21px
+    width: 121px
+    padding: 1px 0
+
+  .bar-fill
+    height: 100%
+    background-color: #EB6E00
+    border-radius: 0 3px 3px 0
+
+  span
+    margin: 5px 5px 2px 0
+
+
+.item-review-main
+  text-align: center
+
+  span
+    display: block
+    padding-top: 8px
+    font-size: 14px
+    -webkit-font-smoothing: antialiased
+    color: #999
+
+  h1
+    margin: 0
+    font-size: 58px
+    font-weight: 300
+    color: #EB6E00
+
+  .star
+    width: 14px
+    height: 14px
+
+
+#item-search-background
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 64px
+  z-index: 20
+  opacity: 0
+  will-change: opacity
+
+
+#item-above
+  position: absolute
+  top: 0
+  max-height: 100%
+  padding-top: 30vh
+  overflow-y: scroll
+  width: 100%
+
+
+
+.yelp
+  height: 100%
+
+  .item-back
+    color: #d32323
+
+  .item-header
+    background-color: #d32323
+
+  .item-fab i
+    color: #d32323
+
+  .item-options
+    color: #d32323
+
+  .item-info-item i
+    color: #d32323
+
+  .filter
+    -webkit-filter: hue-rotate(150deg)
+    filter:  hue-rotate(150deg)
+
+  #item-search-background
+    background-color: #d32323
+
+
+
+.google
+  height: 100%
+  
+  .item-back
+    color: #4285F4
+
+  .item-header
+    background-color: #4285F4
+
+  .item-fab i
+    color: #4285F4
+
+  .item-options
+    color: #4285F4
+
+  .item-info-item i
+    color: #4285F4
+
+  #item-search-background
+    background-color: #4285F4

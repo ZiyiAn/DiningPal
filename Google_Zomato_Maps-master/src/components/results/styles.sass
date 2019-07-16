@@ -1,0 +1,84 @@
+.results-top
+  height: 113px
+
+.results-list
+  overflow-y: scroll
+  overflow-x: hidden
+  max-height: calc(100% - 62px)
+  padding-bottom: 50px
+
+  @media screen and (max-width: 751px)
+    padding-bottom: 100px
+
+.results-item
+  display: flex
+  cursor: pointer
+  padding: 10px 19px
+  border-bottom: 1px solid #E6E6E6
+
+  &:hover
+    background-color: #FAFAFA
+
+.results-img
+  width: 80px
+  height: 80px
+  flex-shrink: 0
+  margin-left: 15px
+  background-repeat: no-repeat
+  background-size: cover
+  background-position: center
+
+.results-info
+  flex-grow: 1
+  min-width: 0
+
+.results-title
+  color: #333
+  font-size: 16px
+
+.results-sub
+  text-transform: capitalize
+  color: #999
+  padding-top: 3px
+  font-size: 14px
+
+.results-review
+
+  .span-main
+    vertical-align: middle
+    color: #e7711b
+    margin-right: 5px
+
+  .span-sub
+    vertical-align: middle
+    color: #999
+    margin-left: 5px
+
+
+.empty-img
+  position: absolute
+  width: 100%
+  max-width: 400px
+  left: 50%
+  transform: translateX(-50%)
+
+.filter
+  position: absolute
+  top: 58px
+  padding: 0 0 0 16px
+
+  .search-holder
+    left: 16px
+
+
+.yelp
+  height: 100%
+
+  .results-top
+    background-color: #d32323
+
+.google
+  height: 100%
+
+  .results-top
+      background-color: #4285F4
