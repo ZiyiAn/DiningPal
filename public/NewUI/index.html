@@ -40,6 +40,7 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+
 </head>
 
 <body  class="sticky-header">
@@ -69,9 +70,6 @@
                     </li>
                     <li class="active"><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                     <li><a href="table-dynamic.html"><i class="fa fa-th-list"></i> <span>User Database</span></a>
-                    </li>
-                    
-                    <li><a href="toastr.html"><i class="fa fa-book"></i> <span>Toaster Notification</span></a>
                     </li>
 
                     <li><a href="chartjs.html"><i class="fa fa-bar-chart-o"></i> <span>Charts </span></a>
@@ -480,14 +478,14 @@
                             <div class="panel-body- weather-widget">
                                 <div class="weather-state">
                                     <span class="weather-icon">
-                                        <i class="slicon-weather_downpour_fullmoon"></i>
+                                        <!-- <i class="slicon-weather_downpour_fullmoon"></i> -->
                                     </span>
 
-                                    <span class="weather-type">Storm</span>
+                                    <span id = "weather" class="weather-type"></span>
                                 </div>
                                 <div class="weather-info">
-                                    <span class="degree">7</span>
-                                    <span class="weather-city">Burnaby</span>
+                                    <span id = "temperature" class="degree"></span>
+                                    <span id = "location" class="weather-city"></span>
                                     <!-- <div class="switch-btn">
                                         <input type="checkbox" class="js-switch-small-green " checked>
                                     </div> -->
@@ -815,6 +813,27 @@
         var owl = $("#news-feed").data("owlCarousel");
         owl.reinit();
     });
+
+    function getloc(){
+      if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(function (position){
+          lat = String(position.coords.latitude);
+          lng = String(position.coords.longitude);
+          console.debug(position);
+          $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&appid=405aedac1b82d1ee20b4d0b217ac3079", function(data){
+            console.log(data);
+            document.getElementById("temperature").innerText = Math.round(data.main.temp - 273.15);
+            document.getElementById("weather").innerText = data.weather[0].description;
+            document.getElementById("location").innerText = data.name+", "+data.sys.country;
+          })
+        }, function(err){
+          window.alert(err);
+        });
+      }else{
+        window.alert('不支持获取GPS地理位置')
+      }
+    }
+    getloc();
 
 </script>
 

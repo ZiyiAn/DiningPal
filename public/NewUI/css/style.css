@@ -6228,8 +6228,8 @@ h3.time-line-title {
 ---------------*/
 
 .gmaps {
-    height: 310px;
-    width: 100%;
+    height: 70%;
+    width: 80%;
 }
 
 .map-search .form-group, .map-search .form-group input {
