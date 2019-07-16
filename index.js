@@ -41,7 +41,7 @@ express()
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/homepage.html')
+        res.redirect('/NewUI/index.html')
       }
     }
     else {
@@ -63,7 +63,7 @@ express()
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/homepage.html')
+        res.redirect('/NewUI/index.html')
       }
     }
     else {
@@ -125,7 +125,7 @@ express()
               isadmin:result.rows[0].isadmin//false
               //and any other info useful
             }
-            res.redirect('/homepage.html')
+            res.redirect('/NewUI/index.html')
           }
           client.release();
         }
@@ -168,7 +168,7 @@ express()
             //and any other info useful
           }
           var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.redirect('homepage.html')
+          res.redirect('NewUI/index.html')
           client.release();
         }
         res.end()
