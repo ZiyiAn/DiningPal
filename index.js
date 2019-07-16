@@ -37,11 +37,11 @@ express()
       if(myUser.isadmin){
         console.log("homepage_admin. adminname:"+myUser.username)
         console.log("All users:"+req.session.allUsers)
-        res.render('pages/homepage_admin',req.session.allUsers)
+        res.redirect('/NewUI/new_homepage.html')
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/NewUI/index.html')
+        res.redirect('/NewUI/new_homepage.html')
       }
     }
     else {
@@ -59,11 +59,11 @@ express()
       if(myUser.isadmin){
         console.log("homepage_admin. adminname:"+myUser.username)
         console.log("All users:"+req.session.allUsers)
-        res.render('pages/homepage_admin',req.session.allUsers)
+        res.redirect('/NewUI/new_homepage.html')
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/NewUI/index.html')
+        res.redirect('/NewUI/new_homepage.html')
       }
     }
     else {
@@ -108,7 +108,7 @@ express()
               }
               req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
-              res.render('pages/homepage_admin',results)
+              res.redirect('/NewUI/new_homepage.html')
 
           }
           else{//regular user
@@ -125,7 +125,7 @@ express()
               isadmin:result.rows[0].isadmin//false
               //and any other info useful
             }
-            res.redirect('/NewUI/index.html')
+            res.redirect('/NewUI/new_homepage.html')
           }
           client.release();
         }
@@ -168,7 +168,7 @@ express()
             //and any other info useful
           }
           var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.redirect('NewUI/index.html')
+          res.redirect('/NewUI/new_homepage.html')
           client.release();
         }
         res.end()
@@ -220,7 +220,7 @@ express()
             query = "select * from users"
             await client.query(query, [], function(err2, result2){
               console.log('admin:',info[0])
-              res.render('homepage_admin',{allUsers:result.rows})
+              res.redirect('/NewUI/new_homepage.html')
             })
 
           client.release();
