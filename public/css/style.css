@@ -77,7 +77,7 @@ a.boxclose{
 	letter-spacing: 0.1em;
 }
 .menu_box_list li a:hover{
-	color:#d15908;
+	color:;
 }
 .menu_box_list li a > i > img{
 	vertical-align:middle;
@@ -130,7 +130,7 @@ ul.menu-top li a:hover{
 	margin:0 0 0.5em 0;
 }
 .header-bottom a{
-	background:#d15908;
+	background:;
 	padding:20px 50px;
 	text-transform:uppercase;
 	color: #fff;
@@ -418,12 +418,12 @@ i.icon5{
 	font-weight:400;
 	font-size:25px;
 	padding:1em 0em 0 0;
-	color:#d15908;
+	color:;
 	font-style: italic
 }
 .slider-top p.below{
 	font-size: 20px;
-	color: #d15908;
+	color: ;
 	font-weight: 400;
 	padding: 0.5em 0 2.5em 0;
 }
@@ -453,13 +453,13 @@ i.icon5{
   height:18px;
   width:18px;
   display:inline-block;
-  border:2px solid #d15908;
+  border:2px solid ;
   border-radius: 30px;
   -webkit-border-radius: 30px;
   -moz-border-radius: 30px;
   -o-border-radius: 30px;
   -ms-border-radius: 30px;
-  background:#d15908;
+  background:;
 }
 .callbacks_here a:after{
 	border:2px solid #fff;
@@ -500,7 +500,7 @@ i.icon5{
 	float: left;
 	font-size:25px;
 	font-weight:700;
-	color: #d15908;
+	color: ;
 	background:url(../images/map-1.png)no-repeat left;
 	padding:12px 0px 12px 50px;
 	border:0px;
@@ -511,7 +511,7 @@ i.icon5{
 	float:right;
 	font-size:25px;
 	font-weight:700;
-	color: #d15908;
+	color: ;
 	border:0px;
 	padding:12px 0px 12px 50px;
 	margin-bottom: 0px;
@@ -520,7 +520,7 @@ i.icon5{
 	background:url(../images/map-2.png)no-repeat left;
 	padding:2px 0 2px 22px;
 	margin: 0px 46px;
-	color:#d15908;
+	color:;
 	font-size:16px;
 }
 .row1{
@@ -564,7 +564,7 @@ i.icon5{
 	position: relative;
 }
 .jspDrag{
-	background: #d15908;
+	background: ;
 	position: relative;
 	top: 0;
 	left: 0;
@@ -576,7 +576,7 @@ i.icon5{
 	height: 100%;
 }
 .jspArrow{
-	background: #d15908;
+	background: ;
 	text-indent: -20000px;
 	display: block;
 	cursor: pointer;
@@ -585,7 +585,7 @@ i.icon5{
 }
 .jspArrow.jspDisabled{
 	cursor: default;
-	background: #d15908;
+	background: ;
 }
 .jspVerticalBar .jspArrow{
 	height: 16px;
@@ -599,7 +599,7 @@ i.icon5{
 	outline: none;
 }
 .jspCorner{
-	background: #d15908;
+	background: ;
 	float: left;
 	height: 100%;
 }
@@ -618,7 +618,7 @@ p.footer-head{
 }
 p.footer-head a{
 	text-decoration: none;
-	color:#d15908;
+	color:;
 	font-weight:700;
 }
 p.footer-head a:hover{
