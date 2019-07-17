@@ -163,12 +163,12 @@ express()
             }
           })
           req.session.myUser = {
-            username:result.rows[0].username,
-            email:result.rows[0].email,
-            isadmin:result.rows[0].isadmin//false
+            username:req.query.username,
+            email:req.query.email,
+            isadmin:false//false
             //and any other info useful
           }
-          var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
+          //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
           res.redirect('/NewUI/new_homepage_user.html')
           client.release();
         }
