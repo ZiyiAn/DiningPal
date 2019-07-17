@@ -6,22 +6,27 @@
     <meta name="description" content="">
     <meta name="author" content="Mosaddek">
     <meta name="keyword" content="slick, flat, dashboard, bootstrap, admin, template, theme, responsive, fluid, retina">
-    <link rel="shortcut icon" href="javascript:;" type="image/png">
+    <link rel="shortcut icon" href="NewUI/javascript:;" type="image/png">
 
-    <title>Gallery</title>
+    <title>data table</title>
 
     <!--right slidebar-->
-    <link href="css/slidebars.css" rel="stylesheet">
+    <link href="NewUI/css/slidebars.css" rel="stylesheet">
 
     <!--switchery-->
-    <link href="js/switchery/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="NewUI/js/switchery/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
 
-    <!--bootstrap-fileinput-master-->
-    <link rel="stylesheet" type="text/css" href="js/bootstrap-fileinput-master/css/fileinput.css" />
+    <!--Data Table-->
+    <link href="NewUI/js/data-table/css/jquery.dataTables.css" rel="stylesheet">
+    <link href="NewUI/js/data-table/css/dataTables.tableTools.css" rel="stylesheet">
+    <link href="NewUI/js/data-table/css/dataTables.colVis.min.css" rel="stylesheet">
+    <link href="NewUI/js/data-table/css/dataTables.responsive.css" rel="stylesheet">
+    <link href="NewUI/js/data-table/css/dataTables.scroller.css" rel="stylesheet">
+    <!-- Base Styles -->
 
     <!--common style-->
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/style-responsive.css" rel="stylesheet">
+    <link href="NewUI/css/style.css" rel="stylesheet">
+    <link href="NewUI/css/style-responsive.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,7 +52,7 @@
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
                 <a href="new_homepage.html">
-                    <img src="img/logo-icon.png" alt="">
+                    <img src="NewUI/img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">DiningPal</span>
                 </a>
@@ -64,53 +69,35 @@
                     <li>
                         <h3 class="navigation-title">Navigation</h3>
                     </li>
-                    <li><a href="new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+                    <li><a href="NewUI/new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+
                     <form id = "getdb" action="/database"></form>
                     <li><a href="#" onclick= "document.getElementById('getdb').submit()"><i class="fa fa-th-list"></i> <span>User Database</span></a>
                     </li>
 
-                    <li><a href="chartjs.html"><i class="fa fa-bar-chart-o"></i> <span>Charts </span></a>
+                    <li><a href="NewUI/chartjs.html"><i class="fa fa-bar-chart-o"></i> <span>Charts </span></a>
                     </li>
 
-                    <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    <li><a href="NewUI/google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
                     </li>
 
                     <li>
                         <h3 class="navigation-title">Components</h3>
                     </li>
-                    <li class="menu-list" style="background-color: #222223"><a href=""><i class="fa fa-cogs"></i> <span style="color: #7cd8a9;">Components</span></a>
+                    <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
                         <ul class="child-list">
-                            <li><a href="calendar.html"> Calendar</a></li>
-                            <li><a href="timeline.html"> Timeline </a></li>
-                            <li  class="active"><a href="gallery.html"> Gallery </a></li>
+                            <li><a href="NewUI/calendar.html"> Calendar</a></li>
+                            <li><a href="NewUI/timeline.html"> Timeline </a></li>
+                            <li><a href="NewUI/gallery.html"> Gallery </a></li>
                         </ul>
                     </li>
 
                     <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
                         <ul class="child-list">
-                            <li><a href="form-wizard.html"> Account Register</a></li>
-                            <li><a href="form-validation.html"> Account Validation</a></li>
+                            <li><a href="NewUI/form-wizard.html"> Account Register</a></li>
+                            <li><a href="NewUI/form-validation.html"> Account Validation</a></li>
                         </ul>
                     </li>
-<!--
-
-                    <li>
-                        <h3 class="navigation-title">Extra</h3>
-                    </li> -->
-
-
-<!--                     <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
-                        <ul class="child-list">
-                            <li><a href="profile.html"> Profile</a></li>
-                            <li><a href="invoice.html"> Invoice</a></li>
-                            <li><a href="login.html"> Login </a></li>
-                            <li><a href="registration.html"> Registration </a></li>
-                            <li><a href="lock.html"> Lock Screen </a></li>
-                            <li><a href="404.html"> 404 Error</a></li>
-                            <li><a href="500.html"> 500 Error</a></li>
-
-                        </ul>
-                    </li> -->
 
                 </ul>
                 <!--sidebar nav end-->
@@ -137,7 +124,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li><a href="javascript:;" class="btn btn-success btn-sm ">View Details</a></li>
+                        <li><a href="NewUI/javascript:;" class="btn btn-success btn-sm ">View Details</a></li>
                     </ul>
                 </div>
                 <!--sidebar widget end-->
@@ -147,7 +134,7 @@
         <!-- sidebar left end-->
 
         <!-- body content start-->
-        <div class="body-content" >
+        <div class="body-content" style="min-height: 1000px;">
 
             <!-- header section start-->
             <div class="header-section">
@@ -155,7 +142,7 @@
                 <!--logo and logo icon start-->
                 <div class="logo dark-logo-bg hidden-xs hidden-sm">
                     <a href="new_homepage.html">
-                        <img src="img/logo-icon.png" alt="">
+                        <img src="NewUI/img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                         <span class="brand-name">DiningPal</span>
                     </a>
@@ -163,7 +150,7 @@
 
                 <div class="icon-logo dark-logo-bg hidden-xs hidden-sm">
                     <a href="new_homepage.html">
-                        <img src="img/logo-icon.png" alt="">
+                        <img src="NewUI/img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                     </a>
                 </div>
@@ -218,20 +205,20 @@
 
 
                         <li>
-                            <a href="javascript:;" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <img src="img/avatar-mini.jpg" alt=""><span id="user_name" >user</span>
+                            <a href="NewUI/javascript:;" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                <img src="NewUI/img/avatar-mini.jpg" alt=""><span id="user_name" >user</span>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu purple pull-right">
-                                <li><a href="javascript:;">  Profile</a></li>
+                                <li><a href="NewUI/javascript:;">  Profile</a></li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="NewUI/javascript:;">
                                         <span class="badge bg-danger pull-right">40%</span>
                                         <span>Settings</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:;">
+                                    <a href="NewUI/javascript:;">
                                         <span class="label bg-info pull-right">new</span>
                                         Help
                                     </a>
@@ -257,186 +244,60 @@
             <!-- page head start-->
             <div class="page-head">
                 <h3 class="m-b-less">
-                    Restaurant Gallery
+                    Data Table
                 </h3>
                 <!--<span class="sub-title">Welcome to Static Table</span>-->
-                <div class="state-information">
-                    <!-- <div class="gal-tools">
-                        <a href="#">
-                            <i class="fa fa-repeat"></i>
-                            Reload
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-folder-o"></i>
-                            Group
-                        </a>
-                        <a href="#">
-                            <i class="fa fa-trash-o"></i>
-                            Move to Trash
-                        </a>
-                        <a href="#">
-                            <i class="fa  fa-ellipsis-v"></i>
-                            More
-                        </a>
-                    </div> -->
-                </div>
 
             </div>
             <!-- page head end-->
 
             <!--body wrapper start-->
-            <div class="wrapper no-pad">
+            <div class="wrapper">
 
-            <div class="profile-desk">
-            <aside class="p-aside">
-
-
-                <ul class="gallery">
-                    <li>
-                        <a href="https://www.mcdonalds.com/ca/en-ca.html">
-                            <img src="img/gallery/1.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.kfc.ca/menu/for-sharing">
-                            <img src="img/gallery/2.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://web.aw.ca/en/home">
-                            <img src="img/gallery/3.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.whitespot.ca/">
-                            <img src="img/gallery/4.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://burgerking.ca/">
-                            <img src="img/gallery/5.png" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.wendys.com/">
-                            <img src="img/gallery/6.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.churchschicken.ca/">
-                            <img src="img/gallery/7.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.littlesheep.com/">
-                            <img src="img/gallery/8.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.seafoodcruise.com/">
-                            <img src="img/gallery/9.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://deergarden.ca/">
-                            <img src="img/gallery/10.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://dantespizzeria.ca/">
-                            <img src="img/gallery/11.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.opentable.ca/r/mott-32-vancouver">
-                            <img src="img/gallery/12.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <!-- <li>
-                        <a href="#">
-                            <img src="img/gallery/13.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/gallery/14.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/gallery/15.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/gallery/16.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/gallery/17.jpg" alt=""/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <img src="img/gallery/18.jpg" alt=""/>
-                        </a>
-                    </li> -->
-                </ul>
-
-            <!-- </aside>
-            <aside class="p-short-info">
-                <div class="widget">
-
-                    <div class="form-group row gal-upload">
-                        <label class="col-lg-12 control-label">Upload Image</label>
-                        <div class="col-lg-12">
-                            <input id="file-4" class="file" type="file" multiple=true>
-                        </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <section class="panel">
+                            <header class="panel-heading ">
+                                Convertable Data Table
+                                <span class="tools pull-right">
+                                    <a class="fa fa-repeat box-refresh" href="NewUI/javascript:;"></a>
+                                    <a class="t-close fa fa-times" href="NewUI/javascript:;"></a>
+                                </span>
+                            </header>
+                        <table class="table convert-data-table data-table">
+                        <!-- <thead> -->
+                        <tr>
+                            <th>
+                                UserName
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Password
+                            </th>
+                            <th>
+                                IsAdmin
+                            </th>
+                        </tr>
+                        <!-- </thead> -->
+                        <!-- <tbody> -->
+                        <% results.forEach(function(r){ %>
+                          <tr>
+                          <td><%= r.username%></td>
+                          <td><%= r.email%></td>
+                          <td><%= r.password%></td>
+                          <td><%= r.isadmin%></td>
+                          </tr>
+                        <% }); %>
+                        <!-- </tbody> -->
+                        </table>
+                        </section>
                     </div>
-                    <br/>
-
-                    <div class="title">
-                        <h1>Attachment Details</h1>
-                    </div>
-
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="g-title">Title</label>
-                            <input type="text" class="form-control" id="g-title" placeholder=" ">
-                        </div>
-                        <div class="form-group">
-                            <label for="g-caption">Caption</label>
-                            <div class="">
-                                <textarea name="" class="form-control" id="g-caption" cols="30" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="g-txt">Alt Text</label>
-                            <input type="text" class="form-control" id="g-txt" placeholder=" ">
-                        </div>
-                        <div class="form-group">
-                            <label for="g-desk">Description</label>
-                            <div class="">
-                                <textarea name="" class="form-control" id="g-desk" cols="30" rows="3"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="g-url">Link URL</label>
-                            <input type="text" class="form-control" id="g-url" placeholder="../images/gallery/DSC_01.jpg">
-                        </div>
-
-
-                        <button type="submit" class="btn btn-info">Update Gallery</button>
-                    </form>
 
                 </div>
 
-            </aside> -->
-            </div>
 
-            </div>
-            <!--body wrapper end-->
 
 
             <!--footer section start-->
@@ -485,7 +346,7 @@
                             <li>
                                 <a href="#">
                                         <span class="thumb-small">
-                                <img class="circle" src="img/img2.jpg" alt="">
+                                <img class="circle" src="NewUI/img/img2.jpg" alt="">
                                 <i class="online dot"></i>
                             </span>
                                     <div class="inline">
@@ -499,7 +360,7 @@
                             <li>
                                 <a href="#">
                                         <span class="thumb-small">
-                                <img class="circle" src="img/img3.jpg" alt="">
+                                <img class="circle" src="NewUI/img/img3.jpg" alt="">
                                 <i class="online dot"></i>
                             </span>
                                     <div class="inline">
@@ -951,31 +812,39 @@
     </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery-migrate.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/modernizr.min.js"></script>
+<script src="NewUI/js/jquery-1.10.2.min.js"></script>
+<script src="NewUI/js/jquery-migrate.js"></script>
+<script src="NewUI/js/bootstrap.min.js"></script>
+<script src="NewUI/js/modernizr.min.js"></script>
 
 <!--Nice Scroll-->
-<script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="NewUI/js/jquery.nicescroll.js" type="text/javascript"></script>
 
 <!--right slidebar-->
-<script src="js/slidebars.min.js"></script>
+<script src="NewUI/js/slidebars.min.js"></script>
 
 <!--switchery-->
-<script src="js/switchery/switchery.min.js"></script>
-<script src="js/switchery/switchery-init.js"></script>
+<script src="NewUI/js/switchery/switchery.min.js"></script>
+<script src="NewUI/js/switchery/switchery-init.js"></script>
 
 <!--Sparkline Chart-->
-<script src="js/sparkline/jquery.sparkline.js"></script>
-<script src="js/sparkline/sparkline-init.js"></script>
+<script src="NewUI/js/sparkline/jquery.sparkline.js"></script>
+<script src="NewUI/js/sparkline/sparkline-init.js"></script>
 
-<!--bootstrap-fileinput-master-->
-<script type="text/javascript" src="js/bootstrap-fileinput-master/js/fileinput.js"></script>
-<script type="text/javascript" src="js/file-input-init.js"></script>
+
+<!--Data Table-->
+<script src="NewUI/js/data-table/js/jquery.dataTables.min.js"></script>
+<script src="NewUI/js/data-table/js/dataTables.tableTools.min.js"></script>
+<script src="NewUI/js/data-table/js/bootstrap-dataTable.js"></script>
+<script src="NewUI/js/data-table/js/dataTables.colVis.min.js"></script>
+<script src="NewUI/js/data-table/js/dataTables.responsive.min.js"></script>
+<script src="NewUI/js/data-table/js/dataTables.scroller.min.js"></script>
+<!--data table init-->
+<script src="NewUI/js/data-table-init.js"></script>
+
 
 <!--common scripts for all pages-->
-<script src="js/scripts.js"></script>
+<script src="NewUI/js/scripts.js"></script>
 
 
 </body>

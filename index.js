@@ -218,30 +218,16 @@ express()
   })
 
 
-  .get('/database', async(req,res)=>{
+  .get('/database', async(req,res)=>{ console.log('get database')
     try{
       const client = await pool.connect()
-      var query = "select * from users";
-      info = []
-        if (err||!result.rows[0]){
-          console.log("Query error: " + err )
-          console.log(result.rows[0])
-          res.redirect('startpage.html')
-        }
-        else {
-            query = "select * from users"
-            await client.query(query, [], function(err2, result2){
-              console.log('admin:',info[0])
-              res.redirect('/NewUI/new_homepage.html')
-            })
-
-          client.release();
-        res.end()
-        }
-    } catch (err){
-      console.error(err);
-      res.render('pages/error',{message:"Database connection fail"})
+      const result = await client.query('SELECT * FROM users')
+      const results = {'results':(result)? result.rows:null}
+      res.render('pages/table-dynamic',results)
+      client.release()
+    } catch(err){
+      console.error(err)
+      res.render('pages/error',{message:"Cannot get database"})
     }
-
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
