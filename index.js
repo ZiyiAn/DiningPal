@@ -11,7 +11,7 @@ const sessionFiles = require('session-file-store')(session)
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  // ssl: true
+  //ssl: true
 });
 
 express()
@@ -37,11 +37,11 @@ express()
       if(myUser.isadmin){
         console.log("homepage_admin. adminname:"+myUser.username)
         console.log("All users:"+req.session.allUsers)
-        res.render('pages/homepage_admin',req.session.allUsers)
+        res.redirect('/NewUI/new_homepage.html')
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/homepage.html')
+        res.redirect('/NewUI/new_homepage_user.html')
       }
     }
     else {
@@ -59,11 +59,11 @@ express()
       if(myUser.isadmin){
         console.log("homepage_admin. adminname:"+myUser.username)
         console.log("All users:"+req.session.allUsers)
-        res.render('pages/homepage_admin',req.session.allUsers)
+        res.redirect('/NewUI/new_homepage.html')
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/homepage.html')
+        res.redirect('/NewUI/new_homepage_user.html')
       }
     }
     else {
@@ -108,7 +108,7 @@ express()
               }
               req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
-              res.render('pages/homepage_admin',results)
+              res.redirect('/NewUI/new_homepage.html')
 
           }
           else{//regular user
@@ -125,7 +125,7 @@ express()
               isadmin:result.rows[0].isadmin//false
               //and any other info useful
             }
-            res.redirect('/homepage.html')
+            res.redirect('/NewUI/new_homepage_user.html')
           }
           client.release();
         }
@@ -168,7 +168,7 @@ express()
             //and any other info useful
           }
           var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.redirect('homepage.html')
+          res.redirect('/NewUI/new_homepage_user.html')
           client.release();
         }
         res.end()
@@ -193,17 +193,17 @@ express()
     }
   })
 
-  .post('/get_Username',(req, res)=>{
+  .get('/getUsername',(req, res)=>{
     var myUser = req.session.myUser
     if(myUser){
-      console.log('user name sent!')
-      res.send({message: myUser.username})
+      console.log("send username:"+myUser.username)
+      res.send({username:myUser.username})
     }
-    else{
-      console.log('failed')
+    else {
+      console.log("user not logged in")
+      res.send({username:"None"})
     }
   })
-
 
   .get('/logout', (req, res)=>{
     req.session.destroy((err)=>{
@@ -218,30 +218,16 @@ express()
   })
 
 
-  .get('/database', async(req,res)=>{
+  .get('/database', async(req,res)=>{ console.log('get database')
     try{
       const client = await pool.connect()
-      var query = "select * from users";
-      info = []
-        if (err||!result.rows[0]){
-          console.log("Query error: " + err )
-          console.log(result.rows[0])
-          res.redirect('startpage.html')
-        }
-        else {
-            query = "select * from users"
-            await client.query(query, [], function(err2, result2){
-              console.log('admin:',info[0])
-              res.render('homepage_admin',{allUsers:result.rows})
-            })
-
-          client.release();
-        res.end()
-        }
-    } catch (err){
-      console.error(err);
-      res.render('pages/error',{message:"Database connection fail"})
+      const result = await client.query('SELECT * FROM users')
+      const results = {'results':(result)? result.rows:null}
+      res.render('pages/table-dynamic',results)
+      client.release()
+    } catch(err){
+      console.error(err)
+      res.render('pages/error',{message:"Cannot get database"})
     }
-
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
