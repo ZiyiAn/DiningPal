@@ -23,7 +23,7 @@ function valid_pass(){
     warn.innerHTML = "Passwords do not match!"
     return false}
   else {warn.innerHTML = ""
-  return True}
+  return true}
 }
 </script>
 <link href="login/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
@@ -124,8 +124,6 @@ function valid_pass(){
 		<div class="contact-form1">
 			<div class="contact-w3-agileits">
 				<h3>Register Form</h3>
-
-				<form id = 'form2' action="signup" onsubmit="return validRegister()">
 
 				<form id = 'form2' action="signup" onsubmit="return valid_pass()">
 
