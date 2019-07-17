@@ -816,7 +816,6 @@ function getLocation()
     }
   else{x.innerHTML="Geolocation is not supported by this browser.";}
   }
-
 function showPosition(position)
   {
   lat=position.coords.latitude;
@@ -827,7 +826,6 @@ function showPosition(position)
   // mapholder.style.width='1700px';
   $("#gmap_basic").width('100%');
   $("#gmap_basic").height('1000px');
-
   var myOptions={
   center:latlon,zoom:14,
   mapTypeId:google.maps.MapTypeId.ROADMAP,
@@ -837,7 +835,6 @@ function showPosition(position)
   var map=new google.maps.Map(document.getElementById("gmap_basic"),myOptions);
   var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
   }
-
 function showError(error)
   {
   switch(error.code)
@@ -856,7 +853,6 @@ function showError(error)
       break;
     }
   }
-
 </script>>
 <script src="js/gmaps.js"></script>
 
