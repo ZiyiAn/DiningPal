@@ -27,7 +27,15 @@
     <![endif]-->
 </head>
 
-<body class="sticky-header">
+<script type="text/javascript">
+    function changeName(){
+      $.get("/getUsername", (data)=>{
+        console.log("change username");
+        document.getElementById("user_name").innerHTML=data.username;
+      })
+    }
+</script>
+<body class="sticky-header" onload="changeName()">
 
     <section>
         <!-- sidebar left start-->
@@ -73,14 +81,14 @@
                             <li><a href="gallery.html"> Gallery </a></li>
                         </ul>
                     </li>
-                    
+
                     <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
                         <ul class="child-list">
                             <li><a href="form-wizard.html"> Account Register</a></li>
                             <li><a href="form-validation.html"> Account Validation</a></li>
                         </ul>
                     </li>
-<!-- 
+<!--
 
                     <li>
                         <h3 class="navigation-title">Extra</h3>
@@ -168,31 +176,31 @@
                 <ul class="notification-menu">
                 <!--mail info start-->
                 <li class="d-none">
-                    
+
 
                     <div class="dropdown-menu dropdown-title">
-                        
-                        
+
+
                     </div>
                 </li>
                 <!--mail info end-->
 
                 <!--task info start-->
                 <li class="d-none">
-                   
+
                     <div class="dropdown-menu dropdown-title">
-                        
-                        
+
+
                     </div>
                 </li>
                 <!--task info end-->
 
                 <!--notification info start-->
                 <li>
-                    
 
-                    
-                    
+
+
+
                 </li>
                 <!--notification info end-->
                 </ul>
@@ -203,11 +211,11 @@
                 <!--right notification start-->
                 <div class="right-notification">
                     <ul class="notification-menu">
-                        
+
 
                         <li>
                             <a href="javascript:;" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <img src="img/avatar-mini.jpg" alt="">John Doe
+                                <img src="img/avatar-mini.jpg" alt=""><span id="user_name" >user</span>
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu purple pull-right">
@@ -224,11 +232,14 @@
                                         Help
                                     </a>
                                 </li>
-                                <li><a href="../LoginPage.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                <form id = 'logout_form' action="../logout">
+                                </form>
+                                <li><a href="#" onclick="document.getElementById('logout_form').submit()"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+
                             </ul>
                         </li>
                         <li>
-                           
+
                         </li>
 
                     </ul>
@@ -335,7 +346,7 @@
 
             <!--footer section start-->
             <footer>
-                2015 &copy; SlickLab by VectorLab.
+                <p style="font-size: 20px;"> &copy; 2019 DiningPal Team. All Rights Reserved | Design by Team Segfault</p>
             </footer>
             <!--footer section end-->
 

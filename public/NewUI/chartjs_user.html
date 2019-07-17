@@ -8,7 +8,7 @@
     <meta name="keyword" content="slick, flat, dashboard, bootstrap, admin, template, theme, responsive, fluid, retina">
     <link rel="shortcut icon" href="javascript:;" type="image/png">
 
-    <title>google map</title>
+    <title>chartjs</title>
 
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
@@ -28,9 +28,14 @@
 </head>
 
 <script type="text/javascript">
-
+    function changeName(){
+      $.get("/getUsername", (data)=>{
+        console.log("change username");
+        document.getElementById("user_name").innerHTML=data.username;
+      })
+    }
 </script>
-<body class="sticky-header">
+<body class="sticky-header" onload="changeName()">
 
     <section>
         <!-- sidebar left start-->
@@ -38,7 +43,7 @@
         <div class="sidebar-left">
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
-                <a href="new_homepage.html">
+                <a href="new_homepage_user.html">
                     <img src="img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">DiningPal</span>
@@ -56,14 +61,12 @@
                     <li>
                         <h3 class="navigation-title">Navigation</h3>
                     </li>
-                    <li><a href="new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                    <li><a href="table-dynamic.html"><i class="fa fa-th-list"></i> <span>User Database</span></a>
+                    <li><a href="new_homepage_user.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+
+                    <li  class="active"><a href="chartjs_user.html"><i class="fa fa-bar-chart-o"></i> <span>Charts </span></a>
                     </li>
 
-                    <li><a href="chartjs.html"><i class="fa fa-bar-chart-o"></i> <span>Charts </span></a>
-                    </li>
-
-                    <li  class="active"><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    <li><a href="google-map_user.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
                     </li>
 
                     <li>
@@ -71,81 +74,26 @@
                     </li>
                     <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
                         <ul class="child-list">
-                            <li><a href="calendar.html"> Calendar</a></li>
-                            <li><a href="timeline.html"> Timeline </a></li>
-                            <li><a href="gallery.html"> Gallery </a></li>
+                            <li><a href="calendar_user.html"> Calendar</a></li>
+                            <li><a href="timeline_user.html"> Timeline </a></li>
+                            <li><a href="gallery_user.html"> Gallery </a></li>
                         </ul>
                     </li>
-
-                    <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
-                        <ul class="child-list">
-                            <li><a href="form-wizard.html"> Account Register</a></li>
-                            <li><a href="form-validation.html"> Account Validation</a></li>
-                        </ul>
-                    </li>
-<!--
-
-                    <li>
-                        <h3 class="navigation-title">Extra</h3>
-                    </li> -->
-
-
-<!--                     <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
-                        <ul class="child-list">
-                            <li><a href="profile.html"> Profile</a></li>
-                            <li><a href="invoice.html"> Invoice</a></li>
-                            <li><a href="login.html"> Login </a></li>
-                            <li><a href="registration.html"> Registration </a></li>
-                            <li><a href="lock.html"> Lock Screen </a></li>
-                            <li><a href="404.html"> 404 Error</a></li>
-                            <li><a href="500.html"> 500 Error</a></li>
-
-                        </ul>
-                    </li> -->
 
                 </ul>
-                <!--sidebar nav end-->
-
-                <!--sidebar widget start-->
-                <div class="sidebar-widget">
-                    <h4>Server Status</h4>
-                    <ul class="list-group">
-                        <li>
-                            <span class="label label-danger pull-right">33%</span>
-                            <p>Server Usage</p>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 33%;">
-                                    <span class="sr-only">33%</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="label label-warning pull-right">65%</span>
-                            <p>Bandwidth</p>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-warning" style="width: 65%;">
-                                    <span class="sr-only">65%</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="javascript:;" class="btn btn-success btn-sm ">View Details</a></li>
-                    </ul>
-                </div>
-                <!--sidebar widget end-->
-
             </div>
         </div>
         <!-- sidebar left end-->
 
         <!-- body content start-->
-        <div class="body-content" style="min-height: 1000px;">
+        <div class="body-content" style="min-height: 1100px;">
 
             <!-- header section start-->
             <div class="header-section">
 
                 <!--logo and logo icon start-->
                 <div class="logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="new_homepage.html">
+                    <a href="new_homepage_user.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                         <span class="brand-name">DiningPal</span>
@@ -153,7 +101,7 @@
                 </div>
 
                 <div class="icon-logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="new_homepage.html">
+                    <a href="new_homepage_user.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                     </a>
@@ -247,6 +195,9 @@
 
             <!-- page head start-->
             <div class="page-head">
+                <h3 class="m-b-less">
+                    Chartjs
+                </h3>
                 <!--<span class="sub-title">Welcome to Static Table</span>-->
 
             </div>
@@ -256,23 +207,80 @@
             <div class="wrapper">
 
                 <div class="row">
-                    <div class="col-lg-6" style="height: 150%;width: 100%;">
+                    <div class="col-md-6">
+                        <!-- <section class="panel">
+                            <header class="panel-heading">
+                                Bar Chart
+                                <span class="tools pull-right">
+                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
+                                    <a class="t-close fa fa-times" href="javascript:;"></a>
+                                </span>
+                            </header> -->
+                            <div class="panel-body" style="width:0px;height:0px;">
+                                <div class="chartJS">
+                                    <canvas id="bar-chart-js" height="0" width="0%" ></canvas>
+                                </div>
+                            </div>
+                        <!-- </section> -->
+                    </div>
+
+                    <div class="col-md-6">
+                        <!-- <section class="panel">
+                            <header class="panel-heading">
+                                Line chart
+                                <span class="tools pull-right">
+                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
+                                    <a class="t-close fa fa-times" href="javascript:;"></a>
+                                </span>
+                            </header> -->
+                            <div class="panel-body" style="width:0px;height:0px;">
+                                <div class="chartJS">
+                                    <canvas id="line-chart-js" height="240" width="100%" ></canvas>
+                                </div>
+                            </div>
+                        <!-- </section> -->
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <!-- <section class="panel">
+                            <header class="panel-heading">
+                                Pie Chart
+                                <span class="tools pull-right">
+                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
+                                    <a class="t-close fa fa-times" href="javascript:;"></a>
+                                </span>
+                            </header> -->
+                            <div class="panel-body" style="width:0px;height:0px;">
+                                <div class="chartJS">
+                                    <canvas id="pie-chart-js" height="240" width="100%" ></canvas>
+                                </div>
+                            </div>
+                        <!-- </section> -->
+                    </div>
+
+                    <div class="col-md-6" style="position:absolute;left: 20%;">
                         <section class="panel">
                             <header class="panel-heading">
-                                Map
-                                <span class="tools pull-right" >
+                                Donut Chart for User Food Preference
+                                <span class="tools pull-right">
                                     <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
                                     <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
                                     <a class="t-close fa fa-times" href="javascript:;"></a>
                                 </span>
                             </header>
-                            <div class="panel-body" >
-                                <!--<div id="gmap_basic" class="gmaps" ></div>-->
-                                <div class="gmaps" ></div>
-                                <iframe src='map_restaurant.html' style="height:610px; width:100%;"></iframe>
+                            <div class="panel-body">
+                                <div class="chartJS">
+                                    <canvas id="donut-chart-js" height="300" width="100%" ></canvas>
+                                </div>
                             </div>
                         </section>
                     </div>
+
                 </div>
 
             </div>
@@ -669,8 +677,7 @@
                                 <div class="desc pull-left">Server Setup and Configuration</div>
                             </div>
                             <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-success" role="progressbar"
-                                -valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
                             </div>
                             <div class="info">
                                 <small class="percent pull-left text-muted">50% completed</small>
@@ -810,82 +817,16 @@
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
 <script src="js/sparkline/sparkline-init.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzScIT7zlbo9hxwVepZ1yPfaAAoTtxo7E
-&callback=initMap"></script>
 
 
-<script type="text/javascript" >
-window.onload=getLocation();
-var x=document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
-    navigator.geolocation.getCurrentPosition(showPosition,showError);
-    }
-  else{x.innerHTML="Geolocation is not supported by this browser.";}
+<!--Chart JS-->
+<script src="js/chart-js/chart.js"></script>
+<script src="js/chartJs-init.js"></script>
 
-  $.get("/getUsername", (data)=>{
-    console.log("change username");
-    document.getElementById("user_name").innerHTML=data.username;
-  })
-
-  }
-
-function showPosition(position)
-  {
-  lat=position.coords.latitude;
-  lon=position.coords.longitude;
-  latlon=new google.maps.LatLng(lat, lon)
-  mapholder=document.getElementById('gmap_basic')
-  // mapholder.style.height='650px';
-  // mapholder.style.width='1700px';
-  $("#gmap_basic").width('100%');
-  $("#gmap_basic").height('1000px');
-
-  var myOptions={
-  center:latlon,zoom:14,
-  mapTypeId:google.maps.MapTypeId.ROADMAP,
-  mapTypeControl:false,
-  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-  };
-  var map=new google.maps.Map(document.getElementById("gmap_basic"),myOptions);
-  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
-  }
-
-function showError(error)
-  {
-  switch(error.code)
-    {
-    case error.PERMISSION_DENIED:
-      x.innerHTML="User denied the request for Geolocation."
-      break;
-    case error.POSITION_UNAVAILABLE:
-      x.innerHTML="Location information is unavailable."
-      break;
-    case error.TIMEOUT:
-      x.innerHTML="The request to get user location timed out."
-      break;
-    case error.UNKNOWN_ERROR:
-      x.innerHTML="An unknown error occurred."
-      break;
-    }
-  }
-
-</script>
-
-<script src="js/gmaps.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
 
-<script src="js/gmaps-init.js"></script>
-
-<script>
-    jQuery(document).ready(function() {
-        GoogleMaps.init();
-    });
-</script>
 
 </body>
 </html>

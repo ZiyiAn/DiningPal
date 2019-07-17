@@ -41,7 +41,7 @@ express()
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/NewUI/new_homepage.html')
+        res.redirect('/NewUI/new_homepage_user.html')
       }
     }
     else {
@@ -63,7 +63,7 @@ express()
       }
       else {
         console.log("homepage_user. username:"+myUser.username)
-        res.redirect('/NewUI/new_homepage.html')
+        res.redirect('/NewUI/new_homepage_user.html')
       }
     }
     else {
@@ -125,7 +125,7 @@ express()
               isadmin:result.rows[0].isadmin//false
               //and any other info useful
             }
-            res.redirect('/NewUI/new_homepage.html')
+            res.redirect('/NewUI/new_homepage_user.html')
           }
           client.release();
         }
@@ -168,7 +168,7 @@ express()
             //and any other info useful
           }
           var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.redirect('/NewUI/new_homepage.html')
+          res.redirect('/NewUI/new_homepage_user.html')
           client.release();
         }
         res.end()
@@ -190,6 +190,18 @@ express()
     else {
       console.log("user not logged in")
       res.send({isLogin: false})
+    }
+  })
+
+  .get('/getUsername',(req, res)=>{
+    var myUser = req.session.myUser
+    if(myUser){
+      console.log("send username:"+myUser.username)
+      res.send({username:myUser.username})
+    }
+    else {
+      console.log("user not logged in")
+      res.send({username:"None"})
     }
   })
 
