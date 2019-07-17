@@ -14,6 +14,7 @@ const pool = new Pool({
   //ssl: true
 });
 
+var app = express()
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .use(bodyParser.json())
@@ -245,3 +246,4 @@ express()
 
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+  module.exports = app
