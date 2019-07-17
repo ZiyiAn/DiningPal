@@ -1,1 +1,0 @@
-{"cookie":{"originalMaxAge":360000,"expires":"2019-07-16T23:18:38.669Z","httpOnly":true,"path":"/"},"myUser":{"username":"Admin","email":"ziyia@sfu.ca","isadmin":true},"allUsers":{"results":[{"username":"Admin","password":"segfault","email":"ziyia@sfu.ca","isadmin":true},{"username":"test1","password":"123","email":"test1@sfu.ca","isadmin":false}]},"__lastAccess":1563318758669}
