@@ -218,6 +218,32 @@ express()
     })
   })
 
+  .get('/deleteUser', async (req,res)=>{
+    try{
+      const client = await pool.connect()
+      var query = "delete from users where email=($1) ";
+      var info = [req.query.email];
+      await client.query(query, info, function(err, result){
+        if (err){
+          console.log("Query error: " + err );
+          /*do something if username exist
+          // res.send("Query error: " + err);
+          */
+          res.render('pages/error',{message:"Fail to delete user"})
+      	}
+        else {
+          console.log("delete succeed")
+          //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
+          res.redirect('/database')
+          client.release();
+        }
+        res.end()
+      })
+    } catch (err){
+      console.error(err);//database not connected
+      res.render('pages/error',{message:"Database connection fail"})
+    }
+  })
 
   .get('/database', async(req,res)=>{ console.log('get database')
     try{
@@ -228,7 +254,7 @@ express()
       client.release()
     } catch(err){
       console.error(err)
-      res.render('pages/error',{message:"Cannot get database"})
+      res.render('pages/error',{message:"Database connection fail"})
     }
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
