@@ -221,8 +221,9 @@ express()
   .get('/deleteUser', async (req,res)=>{
     try{
       const client = await pool.connect()
-      var query = "delete from users where email=($1) ";
+      var query = "delete from users where email=($1)";
       var info = [req.query.email];
+      //console.log("useremail is "+req.query)
       await client.query(query, info, function(err, result){
         if (err){
           console.log("Query error: " + err );
