@@ -11,7 +11,7 @@ const sessionFiles = require('session-file-store')(session)
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
+  //ssl: true
 });
 
 var app = express()
@@ -51,7 +51,7 @@ express()
     }
   })
 
-  .get('/home', (req, res ) => {
+  .get('/home', (req, res ) => {//for testing
     //console.log("Welcome back")
     var myUser = req.session.myUser
     //var isAdmin = req.session.isAdmin
@@ -245,16 +245,25 @@ express()
     }
   })
 
-  .get('/database', async(req,res)=>{ console.log('get database')
-    try{
-      const client = await pool.connect()
-      const result = await client.query('SELECT * FROM users')
-      const results = {'results':(result)? result.rows:null}
-      res.render('pages/table-dynamic',results)
-      client.release()
-    } catch(err){
-      console.error(err)
-      res.render('pages/error',{message:"Database connection fail"})
+  .get('/database', async(req,res)=>{
+    var myUser = req.session.myUser
+    if(myUser && myUser.isadmin){
+      console.log('get database')
+      try{
+        const client = await pool.connect()
+        const result = await client.query('SELECT * FROM users')
+        const results = {'results':(result)? result.rows:null}
+        res.render('pages/table-dynamic',results)
+        client.release()
+      }
+      catch(err){
+        console.error(err)
+        res.render('pages/error',{message:"Database connection fail"})
+      }
+    }
+    else{//not admin loginned
+      console.log('Not loginned or not admin')
+      res.redirect('/')
     }
   })
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
