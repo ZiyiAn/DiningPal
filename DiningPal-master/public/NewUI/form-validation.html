@@ -8,7 +8,7 @@
     <meta name="keyword" content="slick, flat, dashboard, bootstrap, admin, template, theme, responsive, fluid, retina">
     <link rel="shortcut icon" href="javascript:;" type="image/png">
 
-    <title>Account Validation</title>
+    <title>Profile</title>
 
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
@@ -35,6 +35,14 @@
       $.get("/getUsername", (data)=>{
         console.log("change username");
         document.getElementById("user_name").innerHTML=data.username;
+        document.getElementById("email").readonly=data.email;
+        document.getElementById("username").placeholder=data.username;
+
+        document.getElementById("Western").checked=data.Western;
+        document.getElementById("French").checked=data.French;
+        document.getElementById("Asia").checked=data.Asia;
+        document.getElementById("Indian").checked=data.Indian;
+        document.getElementById("Mexican").checked=data.Mexican;
       })
     }
 </script>
@@ -75,6 +83,9 @@
                     <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
                     </li>
 
+                    <li><a href="form-validation.html"><i class="fa fa-user"></i> <span>Profile</span></a>
+                    </li>
+
                     <li>
                         <h3 class="navigation-title">Components</h3>
                     </li>
@@ -89,7 +100,7 @@
                     <li class="menu-list" style="background-color: #222223"><a href=""><i class="fa fa-tasks"></i> <span style="color: #7cd8a9;">Accounts</span></a>
                         <ul class="child-list">
                             <li><a href="form-wizard.html"> Account Register</a></li>
-                            <li  class="active"><a href="form-validation.html"> Account Validation</a></li>
+                            <li  class="active"><a href="form-validation.html"> Profile</a></li>
                         </ul>
                     </li>
 <!--
@@ -257,7 +268,7 @@
             <!-- page head start-->
             <div class="page-head">
                 <h3 class="m-b-less">
-                    Account Validation
+                    Profile
                 </h3>
                 <!--<span class="sub-title">Welcome to Static Table</span>-->
             </div>
@@ -266,11 +277,11 @@
             <!--body wrapper start-->
             <div class="wrapper">
 
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                Account Validations
+                                Profiles
                             </header>
                             <div class="panel-body">
                                 <div class=" form">
@@ -311,17 +322,17 @@
                             </div>
                         </section>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div class="col-lg-12">
                         <section class="panel">
                             <header class="panel-heading">
-                                Advanced Account Validations
+                                My Profile
                             </header>
                             <div class="panel-body">
                                 <div class="form">
                                     <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="">
-                                        <div class="form-group ">
+                                        <!-- <div class="form-group ">
                                             <label for="firstname" class="control-label col-lg-2">Firstname *</label>
                                             <div class="col-lg-10">
                                                 <input class=" form-control" id="firstname" name="firstname" type="text" />
@@ -332,15 +343,16 @@
                                             <div class="col-lg-10">
                                                 <input class=" form-control" id="lastname" name="lastname" type="text" />
                                             </div>
-                                        </div>
+                                        </div> -->
+
                                         <div class="form-group ">
                                             <label for="username" class="control-label col-lg-2">Username *</label>
                                             <div class="col-lg-10">
-                                                <input class="form-control " id="username" name="username" type="text" />
+                                                <input class="form-control " id="username" name="username" type="text" placeholder="" />
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="password" class="control-label col-lg-2">Password *</label>
+                                            <label for="password" class="control-label col-lg-2">New Password *</label>
                                             <div class="col-lg-10">
                                                 <input class="form-control " id="password" name="password" type="password" />
                                             </div>
@@ -352,28 +364,54 @@
                                             </div>
                                         </div>
                                         <div class="form-group ">
-                                            <label for="email" class="control-label col-lg-2">Email *</label>
+                                            <label for="email" class="control-label col-lg-2">Email</label>
                                             <div class="col-lg-10">
-                                                <input class="form-control " id="email" name="email" type="email" />
+                                                <input class="form-control " id="email" name="email" type="email" readonly="" />
                                             </div>
                                         </div>
-                                        <div class="form-group ">
+                                        <!-- <div class="form-group ">
                                             <label for="agree" class="control-label m-t-less-6 col-lg-2 col-sm-3">Agree to Our Policy *</label>
                                             <div class="col-lg-10 col-sm-9 chk-fv">
                                                 <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="agree" name="agree" />
                                             </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="newsletter" class="control-label m-t-less-6 col-lg-2 col-sm-3">Receive the Newsletter</label>
-                                            <div class="col-lg-10 col-sm-9 chk-fv">
-                                                <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="newsletter" name="newsletter" />
+                                        </div> -->
+                                        <div class="form-group">
+                                            <label for="Western" class="control-label m-t-less-6 col-lg-2 col-sm-3">Western</label>
+                                            <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
+                                            <div style="float: left">
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Western" name="Western"/>
                                             </div>
+                                            <!-- </div> -->
+                                            <label for="French" class="control-label m-t-less-6 col-lg-2 col-sm-3">French</label>
+                                            <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
+                                            <div style="float: left">
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="French" name="French" />
+                                            </div>
+
+                                            <label for="Asia" class="control-label m-t-less-6 col-lg-2 col-sm-3">Asia</label>
+                                            <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
+                                            <div style="float: left">
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Asia" name="Asia" />
+                                            </div>
+
+                                            <label for="Indian" class="control-label m-t-less-6 col-lg-2 col-sm-3">Indian</label>
+                                            <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
+                                            <div style="float: left">
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Indian" name="Indian" />
+                                            </div>
+
+                                            <label for="Mexican" class="control-label m-t-less-6 col-lg-2 col-sm-3">Mexican</label>
+                                            <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
+                                            <div style="float: left">
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Mexican" name="Mexican" />
+                                            </div>
+
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10">
-                                                <button class="btn btn-success" type="submit">Save</button>
-                                                <button class="btn btn-default" type="button">Cancel</button>
+                                                <button class="btn btn-success" type="submit">Update</button>
+                                                <!-- <button class="btn btn-default" type="button">Cancel</button> -->
                                             </div>
                                         </div>
                                     </form>
@@ -918,10 +956,10 @@
 <script src="js/sparkline/jquery.sparkline.js"></script>
 <script src="js/sparkline/sparkline-init.js"></script>
 
-<!--Account Validation-->
+<!--Profile-->
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 
-<!--Account Validation init-->
+<!--Profile init-->
 <script src="js/form-validation-init.js"></script>
 
 <!--Icheck-->

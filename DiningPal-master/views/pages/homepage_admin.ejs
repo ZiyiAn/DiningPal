@@ -244,6 +244,11 @@
                     <th style="text-align: center;">password</th>
                     <th style="text-align: center;">email</th>
                     <th style="text-align: center;">isadmin</th>
+                    <th style="text-align: center;">Western</th>
+                    <th style="text-align: center;">French</th>
+                    <th style="text-align: center;">Asia</th>
+                    <th style="text-align: center;">Indian</th>
+                    <th style="text-align: center;">Mexican</th>
                   </tr>
 
                     <% results.forEach(function(r) { %>
@@ -252,6 +257,11 @@
                       <td><%= r.password %></td>
                       <td><%= r.email %></td>
                       <td><%= r.isadmin %></td>
+                      <td><%= r.Western %></td>
+                      <td><%= r.French %></td>
+                      <td><%= r.Asia %></td>
+                      <td><%= r.Indian %></td>
+                      <td><%= r.Mexican %></td>
                     </tr>
                     <% }); %>
                 </table>
