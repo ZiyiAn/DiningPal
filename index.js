@@ -37,7 +37,7 @@ express()
       console.log(myUser)//show session content
       if(myUser.isadmin){
         console.log("homepage_admin. adminname:"+myUser.username)
-        console.log("All users:"+req.session.allUsers)
+        //console.log("All users:"+req.session.allUsers)
         res.redirect('/NewUI/new_homepage.html')
       }
       else {
@@ -59,7 +59,7 @@ express()
       console.log(myUser)//show session content
       if(myUser.isadmin){
         console.log("homepage_admin. adminname:"+myUser.username)
-        console.log("All users:"+req.session.allUsers)
+        //console.log("All users:"+req.session.allUsers)
         res.redirect('/NewUI/new_homepage.html')
       }
       else {
@@ -107,7 +107,7 @@ express()
                 email:result.rows[0].email,
                 isadmin:result.rows[0].isadmin,//true
               }
-              req.session.allUsers = { 'results': (result) ? result.rows : null}
+              //req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
               res.redirect('/NewUI/new_homepage.html')
 

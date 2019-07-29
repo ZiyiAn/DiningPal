@@ -297,7 +297,7 @@
 
                 </div>
                 <form style="padding:5px;margin-left:25px" action="deleteUser">
-                  Select <select name="email">
+                  Select <select id="user_selected" name="email">
                     <% results.forEach(function(r){%>
                       <option value= "<%= r.email %>"><%= r.email%></option>
                     <% }) %>
