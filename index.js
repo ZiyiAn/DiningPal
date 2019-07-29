@@ -91,11 +91,11 @@ express()
           console.log("signin succeed")
 
           if(result.rows[0].isadmin){//admin user
-            query = "select * from users"
-            const result = await client.query(query)
+            //query = "select * from users"
+            //const result = await client.query(query)
             	console.log('admin:',info[0])
               //console.log('allusers:',result2)
-              const results = { 'results': (result) ? result.rows : null}
+              //const results = { 'results': (result) ? result.rows : null}
               req.session.regenerate((err)=>{
                 if(err){
                   console.log(err)
@@ -116,8 +116,8 @@ express()
           	console.log("user:",result.rows[0].username)
             req.session.regenerate((err)=>{
               if(err){
+                console.log(err)
                 res.render('pages/error',{message:"Cookie function fail"})
-                return console.log(err)
               }
             })
             req.session.myUser = {
