@@ -198,7 +198,7 @@ express()
     var myUser = req.session.myUser
     if(myUser){
       console.log("send username:"+myUser.username)
-      res.send({username:myUser.username})
+      res.send({username:myUser})
     }
     else {
       console.log("user not logged in")
