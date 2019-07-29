@@ -220,11 +220,11 @@ express()
         }
         else {
           console.log("Update succeed")
-          //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
           res.redirect('/NewUI/form-validation.html')
           client.release();
         }
         res.end()
+
   })
 
   .get('/sendLocation', async (req, res)=>{
