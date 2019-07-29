@@ -73,7 +73,7 @@
                     <li><a href="#" onclick= "document.getElementById('getdb').submit()"><i class="fa fa-th-list"></i> <span>User Database</span></a>
                     </li>
 
-                    <li><a href="https://chatingroom.herokuapp.com"><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
+                    <li><a href="public_chatting.html"><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
                     </li>
 
                     <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
@@ -830,7 +830,6 @@
           lat = String(position.coords.latitude);
           lng = String(position.coords.longitude);
           console.debug(position);
-          $.get('/sendLocation',{x:lat, y:lng},function(data){})
           $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&appid=405aedac1b82d1ee20b4d0b217ac3079", function(data){
             // console.log(data);
             document.getElementById("temperature").innerText = Math.round(data.main.temp - 273.15);

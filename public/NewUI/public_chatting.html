@@ -8,16 +8,13 @@
     <meta name="keyword" content="slick, flat, dashboard, bootstrap, admin, template, theme, responsive, fluid, retina">
     <link rel="shortcut icon" href="javascript:;" type="image/png">
 
-    <title>Account Validation</title>
+    <title>google map</title>
 
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
 
     <!--switchery-->
     <link href="js/switchery/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <!--iCheck-->
-    <link href="js/icheck/skins/all.css" rel="stylesheet">
 
     <!--common style-->
     <link href="css/style.css" rel="stylesheet">
@@ -31,14 +28,9 @@
 </head>
 
 <script type="text/javascript">
-    function changeName(){
-      $.get("/getUsername", (data)=>{
-        console.log("change username");
-        document.getElementById("user_name").innerHTML=data.username;
-      })
-    }
+
 </script>
-<body class="sticky-header" onload="changeName()">
+<body class="sticky-header">
 
     <section>
         <!-- sidebar left start-->
@@ -69,7 +61,7 @@
                     <li><a href="#" onclick= "document.getElementById('getdb').submit()"><i class="fa fa-th-list"></i> <span>User Database</span></a>
                     </li>
 
-                    <li><a href="public_chatting.html"><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
+                    <li  class="active"><a><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
                     </li>
 
                     <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
@@ -86,10 +78,10 @@
                         </ul>
                     </li>
 
-                    <li class="menu-list" style="background-color: #222223"><a href=""><i class="fa fa-tasks"></i> <span style="color: #7cd8a9;">Accounts</span></a>
+                    <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
                         <ul class="child-list">
                             <li><a href="form-wizard.html"> Account Register</a></li>
-                            <li  class="active"><a href="form-validation.html"> Account Validation</a></li>
+                            <li><a href="form-validation.html"> Account Validation</a></li>
                         </ul>
                     </li>
 <!--
@@ -256,10 +248,8 @@
 
             <!-- page head start-->
             <div class="page-head">
-                <h3 class="m-b-less">
-                    Account Validation
-                </h3>
                 <!--<span class="sub-title">Welcome to Static Table</span>-->
+
             </div>
             <!-- page head end-->
 
@@ -267,117 +257,20 @@
             <div class="wrapper">
 
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-6" style="height: 150%;width: 100%;">
                         <section class="panel">
                             <header class="panel-heading">
-                                Account Validations
+                                Public Chatting Room
+                                <span class="tools pull-right" >
+                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
+                                    <a class="t-close fa fa-times" href="javascript:;"></a>
+                                </span>
                             </header>
-                            <div class="panel-body">
-                                <div class=" form">
-                                    <form class="cmxform form-horizontal tasi-form" id="commentForm" method="get" action="">
-                                        <div class="form-group ">
-                                            <label for="cname" class="control-label col-lg-2">Name (required)</label>
-                                            <div class="col-lg-10">
-                                                <input class=" form-control" id="cname" name="name" minlength="2" type="text" required />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="cemail" class="control-label col-lg-2">E-Mail (required)</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control " id="cemail" type="email" name="email" required />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="curl" class="control-label col-lg-2">URL (optional)</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control " id="curl" type="url" name="url" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="ccomment" class="control-label col-lg-2">Your Comment (required)</label>
-                                            <div class="col-lg-10">
-                                                <textarea class="form-control " id="ccomment" name="comment" required></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-lg-offset-2 col-lg-10">
-                                                <button class="btn btn-success" type="submit">Save</button>
-                                                <button class="btn btn-default" type="button">Cancel</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Advanced Account Validations
-                            </header>
-                            <div class="panel-body">
-                                <div class="form">
-                                    <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="">
-                                        <div class="form-group ">
-                                            <label for="firstname" class="control-label col-lg-2">Firstname *</label>
-                                            <div class="col-lg-10">
-                                                <input class=" form-control" id="firstname" name="firstname" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="lastname" class="control-label col-lg-2">Lastname  *</label>
-                                            <div class="col-lg-10">
-                                                <input class=" form-control" id="lastname" name="lastname" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="username" class="control-label col-lg-2">Username *</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control " id="username" name="username" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="password" class="control-label col-lg-2">Password *</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control " id="password" name="password" type="password" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="confirm_password" class="control-label col-lg-2">Confirm Password *</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control " id="confirm_password" name="confirm_password" type="password" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="email" class="control-label col-lg-2">Email *</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control " id="email" name="email" type="email" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="agree" class="control-label m-t-less-6 col-lg-2 col-sm-3">Agree to Our Policy *</label>
-                                            <div class="col-lg-10 col-sm-9 chk-fv">
-                                                <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="agree" name="agree" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="newsletter" class="control-label m-t-less-6 col-lg-2 col-sm-3">Receive the Newsletter</label>
-                                            <div class="col-lg-10 col-sm-9 chk-fv">
-                                                <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="newsletter" name="newsletter" />
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-lg-offset-2 col-lg-10">
-                                                <button class="btn btn-success" type="submit">Save</button>
-                                                <button class="btn btn-default" type="button">Cancel</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
+                            <div class="panel-body" >
+                                <!--<div id="gmap_basic" class="gmaps" ></div>-->
+                                <div class="gmaps" ></div>
+                                <iframe src='https://chatingroom.herokuapp.com' style="height:610px; width:100%;"></iframe>
                             </div>
                         </section>
                     </div>
@@ -777,7 +670,8 @@
                                 <div class="desc pull-left">Server Setup and Configuration</div>
                             </div>
                             <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                -valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
                             </div>
                             <div class="info">
                                 <small class="percent pull-left text-muted">50% completed</small>
@@ -917,46 +811,82 @@
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
 <script src="js/sparkline/sparkline-init.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzScIT7zlbo9hxwVepZ1yPfaAAoTtxo7E
+&callback=initMap"></script>
 
-<!--Account Validation-->
-<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 
-<!--Account Validation init-->
-<script src="js/form-validation-init.js"></script>
+<script type="text/javascript" >
+window.onload=getLocation();
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
 
-<!--Icheck-->
-<script src="js/icheck/skins/icheck.min.js"></script>
+  $.get("/getUsername", (data)=>{
+    console.log("change username");
+    document.getElementById("user_name").innerHTML=data.username;
+  })
+
+  }
+
+function showPosition(position)
+  {
+  lat=position.coords.latitude;
+  lon=position.coords.longitude;
+  latlon=new google.maps.LatLng(lat, lon)
+  mapholder=document.getElementById('gmap_basic')
+  // mapholder.style.height='650px';
+  // mapholder.style.width='1700px';
+  $("#gmap_basic").width('100%');
+  $("#gmap_basic").height('1000px');
+
+  var myOptions={
+  center:latlon,zoom:14,
+  mapTypeId:google.maps.MapTypeId.ROADMAP,
+  mapTypeControl:false,
+  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+  var map=new google.maps.Map(document.getElementById("gmap_basic"),myOptions);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+  }
+
+function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="An unknown error occurred."
+      break;
+    }
+  }
+
+</script>
+
+<script src="js/gmaps.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
 
-    <script>
-        $(document).ready(function(){
-            $('.iCheck').iCheck({
-                checkboxClass: 'icheckbox_minimal',
-                radioClass: 'iradio_minimal',
-                increaseArea: '20%' // optional
-            });
-            $('.iCheck-square').iCheck({
-                checkboxClass: 'icheckbox_square',
-                radioClass: 'iradio_square',
-                increaseArea: '20%' // optional
-            });
-            $('.iCheck-flat').iCheck({
-                checkboxClass: 'icheckbox_flat',
-                radioClass: 'iradio_flat',
-                increaseArea: '20%' // optional
-            });
-            $('.iCheck-polaris').iCheck({
-                checkboxClass: 'icheckbox_polaris',
-                radioClass: 'iradio_polaris',
-                increaseArea: '20%' // optional
-            });
+<script src="js/gmaps-init.js"></script>
 
-
-        });
-    </script>
-
+<script>
+    jQuery(document).ready(function() {
+        GoogleMaps.init();
+    });
+</script>
 
 </body>
 </html>

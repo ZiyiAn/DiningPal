@@ -21,15 +21,12 @@
         line-height: 30px;
         padding-left: 10px;
       }
-
       #right-panel select, #right-panel input {
         font-size: 15px;
       }
-
       #right-panel select {
         width: 100%;
       }
-
       #right-panel i {
         font-size: 12px;
       }
@@ -72,82 +69,12 @@
         width: 100%;
         margin: 5px 0 0 0;
       }
-      #description {
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-      }
-
-      #infowindow-content .title {
-        font-weight: bold;
-      }
-
-      #infowindow-content {
-        display: none;
-      }
-
-      #map #infowindow-content {
-        display: inline;
-      }
-
-      .pac-card {
-        margin: 10px 10px 0 0;
-        border-radius: 2px 0 0 2px;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        outline: none;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        font-family: Roboto;
-      }
-
-      #pac-container {
-        padding-bottom: 12px;
-        margin-right: 12px;
-      }
-
-      .pac-controls {
-        display: inline-block;
-        padding: 5px 11px;
-      }
-
-      .pac-controls label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-
-      #pac-input {
-        background-color: #fff;
-        font-family: Roboto;
-        font-size: 15px;
-        font-weight: 300;
-        margin-left: 12px;
-        padding: 10 11px 10 13px;
-        text-overflow: ellipsis;
-        width: 600px;
-      }
-
-      #pac-input:focus {
-        border-color: #4d90fe;
-      }
-
-      #title {
-        color: #fff;
-        background-color: #4d90fe;
-        font-size: 25px;
-        font-weight: 500;
-        padding: 6px 12px;
-      }
-      #target {
-        width: 345px;
-      }
     </style>
     <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
       // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-    function initMap(){
+    function loading_map(){
       var map;
       window.onload=getLocation();
       var x=document.getElementById("map");
@@ -159,7 +86,6 @@
           }
         else{x.innerHTML="Geolocation is not supported by this browser.";}
         }
-
       function showPosition(position)
         {
         lat=position.coords.latitude;
@@ -168,90 +94,21 @@
         mapholder=document.getElementById('map')
         // mapholder.style.height='700px';
         // mapholder.style.width='1200px';
-
         // var myOptions={
         // center:latlon,zoom:14,
         // mapTypeId:google.maps.MapTypeId.ROADMAP,
         // mapTypeControl:false,
         // navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
         // };
-
-
         var pyrmont = {lat: lat, lng: lon};
         map = new google.maps.Map(document.getElementById('map'), {
           center:latlon,zoom:14,
           mapTypeId:google.maps.MapTypeId.ROADMAP,
-            panControl: true,
-            zoomControl: true,
-            mapTypeControl: true,
-            scaleControl: true,
-            streetViewControl: true,
-            overviewMapControl: true,
-            // rotateControl: true
+          mapTypeControl:false,
           navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
         });
-
-        var input = document.getElementById('pac-input');
-        var searchBox = new google.maps.places.SearchBox(input);
-        // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-        // Bias the SearchBox results towards current map's viewport.
-        map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
-        });
-
-        var markers = [];
-        // Listen for the event fired when the user selects a prediction and retrieve
-        // more details for that place.
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
-            return;
-          }
-
-          // Clear out the old markers.
-          markers.forEach(function(marker) {
-            marker.setMap(null);
-          });
-          markers = [];
-
-          // For each place, get the icon, name and location.
-          var bounds = new google.maps.LatLngBounds();
-          places.forEach(function(place) {
-            if (!place.geometry) {
-              console.log("Returned place contains no geometry");
-              return;
-            }
-            var icon = {
-              url: place.icon,
-              size: new google.maps.Size(71, 71),
-              origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(17, 34),
-              scaledSize: new google.maps.Size(25, 25)
-            };
-
-            // Create a marker for each place.
-            markers.push(new google.maps.Marker({
-              map: map,
-              icon: icon,
-              title: place.name,
-              position: place.geometry.location
-            }));
-
-            if (place.geometry.viewport) {
-              // Only geocodes have viewport.
-              bounds.union(place.geometry.viewport);
-            } else {
-              bounds.extend(place.geometry.location);
-            }
-          });
-          map.fitBounds(bounds);
-        });
-
         // var map=new google.maps.Map(document.getElementById("map"),myOptions);
         var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
-
         var service = new google.maps.places.PlacesService(map);
         var getNextPage = null;
         var moreButton = document.getElementById('more');
@@ -259,14 +116,12 @@
           moreButton.disabled = true;
           if (getNextPage) getNextPage();
         };
-
         // Perform a nearby search.
         var radius_get = document.getElementById('radius_input').value
         service.nearbySearch(
             {location: pyrmont, radius: radius_get, type: ['restaurant']},
             function(results, status, pagination) {
               if (status !== 'OK') return;
-
               createMarkers(results);
               moreButton.disabled = !pagination.hasNextPage;
               getNextPage = pagination.hasNextPage && function() {
@@ -274,7 +129,6 @@
               };
             });
         }
-
       function showError(error)
         {
         switch(error.code)
@@ -293,12 +147,9 @@
             break;
           }
         }
-
-
       function createMarkers(places) {
         var bounds = new google.maps.LatLngBounds();
         var placesList = document.getElementById('places');
-
         for (var i = 0, place; place = places[i]; i++) {
           var image = {
             url: place.icon,
@@ -307,18 +158,15 @@
             anchor: new google.maps.Point(17, 34),
             scaledSize: new google.maps.Size(25, 25)
           };
-
           var marker = new google.maps.Marker({
             map: map,
             icon: image,
             title: place.name,
             position: place.geometry.location
           });
-
           var li = document.createElement('li');
           li.textContent = place.name;
           placesList.appendChild(li);
-
           bounds.extend(place.geometry.location);
         }
         map.fitBounds(bounds);
@@ -326,13 +174,12 @@
     }
     </script>
   </head>
-  <body>
-    <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  <body onload='loading_map()'>
     <div id="map"></div>
     <div id="right-panel">
       <!-- <h2>Results</h2> -->
        Restaurant Searching Radius:
-      <input id='radius_input' type='number' style='width:280px' value = '5000' step='100' min='0'><button type="button" onclick='initMap()'>Confirm</button>
+      <input id='radius_input' type='number' style='width:280px' value = '5000' step='100' min='0'><button type="button" onclick='loading_map()'>Confirm</button>
 
       <ul id="places"></ul>
       <button id="more">More results</button>
