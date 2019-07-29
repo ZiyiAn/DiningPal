@@ -206,6 +206,40 @@ express()
     }
   })
 
+  .get('/sendLocation', async (req, res)=>{
+    var myUser = req.session.myUser
+    if(myUser){
+      try{
+        const client = await pool.connect()
+        var query = "update users set x=($1), y=($2) where email=($3) ";
+        var info = [req.query.x, req.query.y, myUser.email];
+          console.log("email: "+myUser.email)
+          console.log("x: "+req.query.x)
+          console.log("y: "+req.query.y)
+        await client.query(query, info, function(err, result){
+          if (err){
+            console.log("Query error: " + err );
+            //res.render('pages/error',{message:"E-mail already exist"})
+        	}
+          else {
+            console.log("location update succeed")
+            //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
+            //res.redirect('/NewUI/new_homepage_user.html')
+            client.release();
+          }
+          res.end()
+        })
+      } catch (err){
+        console.error(err);//database not connected
+        //res.render('pages/error',{message:"Database connection fail"})
+      }
+    }
+    else {
+      console.log("user not logged in")
+      //res.send({username:"None"})
+    }
+  })
+
   .get('/logout', (req, res)=>{
     req.session.destroy((err)=>{
       if(err){
