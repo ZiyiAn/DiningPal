@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <!-- Head -->
 <head>
 <title>DiningPal</title>
@@ -23,7 +24,7 @@ function valid_pass(){
     warn.innerHTML = "Passwords do not match!"
     return false}
   else {warn.innerHTML = ""
-  return True}
+  return true}
 }
 </script>
 <link href="login/css/popuo-box.css" rel="stylesheet" type="text/css" media="all" />
@@ -125,8 +126,6 @@ function valid_pass(){
 			<div class="contact-w3-agileits">
 				<h3>Register Form</h3>
 
-				<form id = 'form2' action="signup" onsubmit="return validRegister()">
-
 				<form id = 'form2' action="signup" onsubmit="return valid_pass()">
 
 						<div class="form-sub-w3ls">
@@ -198,14 +197,14 @@ function valid_pass(){
 		});
 	</script>
 <script type="text/javascript">
-//window.alert('1');
+
 $.get("/checkLogin",function(data){
-	//window.alert('2')
+
 	if(data.isLogin){
 		window.location.href='/';
 	}
 });
-//window.alert('3');
+
 </script>
 </body>
 <!-- //Body -->

@@ -8,7 +8,7 @@
     <meta name="keyword" content="slick, flat, dashboard, bootstrap, admin, template, theme, responsive, fluid, retina">
     <link rel="shortcut icon" href="javascript:;" type="image/png">
 
-    <title>chartjs</title>
+    <title>Timeline</title>
 
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
@@ -43,7 +43,7 @@
         <div class="sidebar-left">
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
-                <a href="new_homepage.html">
+                <a href="new_homepage_user.html">
                     <img src="img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">DiningPal</span>
@@ -61,97 +61,39 @@
                     <li>
                         <h3 class="navigation-title">Navigation</h3>
                     </li>
-                    <li><a href="new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                    <form id = "getdb" action="/database"></form>
-                    <li><a href="#" onclick= "document.getElementById('getdb').submit()"><i class="fa fa-th-list"></i> <span>User Database</span></a>
+                    <li><a href="new_homepage_user.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
+
+                    <li><a href="public_chatting_user.html"><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
                     </li>
 
-                    <li  class="active"><a href="chartjs.html"><i class="fa fa-bar-chart-o"></i> <span>Charts </span></a>
-                    </li>
-
-                    <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    <li><a href="google-map_user.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
                     </li>
 
                     <li>
                         <h3 class="navigation-title">Components</h3>
                     </li>
-                    <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+                    <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span style="color: #7cd8a9;">Components</span></a>
                         <ul class="child-list">
-                            <li><a href="calendar.html"> Calendar</a></li>
-                            <li><a href="timeline.html"> Timeline </a></li>
-                            <li><a href="gallery.html"> Gallery </a></li>
+                            <li><a href="calendar_user.html"> Calendar</a></li>
+                            <li class="active"><a href="timeline_user.html"> Timeline </a></li>
+                            <li><a href="gallery_user.html"> Gallery </a></li>
                         </ul>
                     </li>
-
-                    <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
-                        <ul class="child-list">
-                            <li><a href="form-wizard.html"> Account Register</a></li>
-                            <li><a href="form-validation.html"> Account Validation</a></li>
-                        </ul>
-                    </li>
-<!--
-
-                    <li>
-                        <h3 class="navigation-title">Extra</h3>
-                    </li> -->
-
-
-<!--                     <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
-                        <ul class="child-list">
-                            <li><a href="profile.html"> Profile</a></li>
-                            <li><a href="invoice.html"> Invoice</a></li>
-                            <li><a href="login.html"> Login </a></li>
-                            <li><a href="registration.html"> Registration </a></li>
-                            <li><a href="lock.html"> Lock Screen </a></li>
-                            <li><a href="404.html"> 404 Error</a></li>
-                            <li><a href="500.html"> 500 Error</a></li>
-
-                        </ul>
-                    </li> -->
 
                 </ul>
-                <!--sidebar nav end-->
-
-                <!--sidebar widget start-->
-                <div class="sidebar-widget">
-                    <h4>Server Status</h4>
-                    <ul class="list-group">
-                        <li>
-                            <span class="label label-danger pull-right">33%</span>
-                            <p>Server Usage</p>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 33%;">
-                                    <span class="sr-only">33%</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="label label-warning pull-right">65%</span>
-                            <p>Bandwidth</p>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-warning" style="width: 65%;">
-                                    <span class="sr-only">65%</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="javascript:;" class="btn btn-success btn-sm ">View Details</a></li>
-                    </ul>
-                </div>
-                <!--sidebar widget end-->
-
             </div>
         </div>
         <!-- sidebar left end-->
 
         <!-- body content start-->
-        <div class="body-content" style="min-height: 1100px;">
+        <div class="body-content" style="min-height: 1000px;">
 
             <!-- header section start-->
             <div class="header-section">
 
                 <!--logo and logo icon start-->
                 <div class="logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="new_homepage.html">
+                    <a href="new_homepage_user.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                         <span class="brand-name">DiningPal</span>
@@ -159,7 +101,7 @@
                 </div>
 
                 <div class="icon-logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="new_homepage.html">
+                    <a href="new_homepage_user.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                     </a>
@@ -236,7 +178,6 @@
                                 <form id = 'logout_form' action="../logout">
                                 </form>
                                 <li><a href="#" onclick="document.getElementById('logout_form').submit()"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-
                             </ul>
                         </li>
                         <li>
@@ -253,94 +194,202 @@
 
             <!-- page head start-->
             <div class="page-head">
-                <h3 class="m-b-less">
-                    Chartjs
+                <h3>
+                    Timeline
                 </h3>
-                <!--<span class="sub-title">Welcome to Static Table</span>-->
-
+                <span class="sub-title">Welcome to timeline zone</span>
+               <!--  <div class="state-information">
+                    <button type="button" class="btn btn-success m-t-10"><i class="fa fa-plus"></i> Add New </button>
+                </div> -->
             </div>
             <!-- page head end-->
 
             <!--body wrapper start-->
             <div class="wrapper">
-
-                <div class="row">
-                    <div class="col-md-6">
-                        <!-- <section class="panel">
-                            <header class="panel-heading">
-                                Bar Chart
-                                <span class="tools pull-right">
-                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
-                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
-                                    <a class="t-close fa fa-times" href="javascript:;"></a>
-                                </span>
-                            </header> -->
-                            <div class="panel-body" style="width:0px;height:0px;">
-                                <div class="chartJS">
-                                    <canvas id="bar-chart-js" height="0" width="0%" ></canvas>
+                <!--timeline start-->
+                <section class="panel-timeline">
+                    <div class="fb-timeliner">
+                        <ul>
+                            <li class="active"><a href="#">Today</a></li>
+                            <li><a href="#">Yesterday</a></li>
+                            <li><a href="#">1 Week Ago</a></li>
+                            <li><a href="#">1 month Ago</a></li>
+                            <li><a href="#">2014</a></li>
+                            <li><a href="#">2013</a></li>
+                            <li><a href="#">2012</a></li>
+                        </ul>
+                    </div>
+                    <div class="time-line-wrapper">
+                        <div class="time-line-caption">
+                            <h3 class="time-line-title">Today</h3>
+                        </div>
+                        <article class="time-line-row">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow"></span>
+                                        <span class="time-line-ico-box green"></span>
+                                        <span class="time-line-subject green"> <i class="fa fa-clock-o"></i> Appointment</span>
+                                        <div class="title">
+                                            <h1>23 June</h1>
+                                            <small class="text-muted">2:30 pm</small>
+                                        </div>
+                                        <p>Appointment with Mott 32 Manager <a class="green-color">John Doe</a>
+                                            <br/> 1161 West Georgia Street Vancouver, BC, Canada
+                                        </p>
+                                        <p>Contract discussion</p>
+                                    </div>
                                 </div>
                             </div>
-                        <!-- </section> -->
-                    </div>
-
-                    <div class="col-md-6">
-                        <!-- <section class="panel">
-                            <header class="panel-heading">
-                                Line chart
-                                <span class="tools pull-right">
-                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
-                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
-                                    <a class="t-close fa fa-times" href="javascript:;"></a>
-                                </span>
-                            </header> -->
-                            <div class="panel-body" style="width:0px;height:0px;">
-                                <div class="chartJS">
-                                    <canvas id="line-chart-js" height="240" width="100%" ></canvas>
+                        </article>
+                        <article class="time-line-row alt">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow-alt"></span>
+                                        <span class="time-line-ico-box purple"></span>
+                                        <span class="time-line-subject purple"> <i class="fa fa-users"></i> Meeting</span>
+                                        <div class="title">
+                                            <h1>23 June</h1>
+                                            <small class="text-muted">12:00 pm</small>
+                                        </div>
+                                        <p>
+                                            Monthly Evulution meeting with <a class="green-color"> John Doe </a> , <a class="green-color"> Adam Smith</a> and <a class="green-color"> Pett Huu</a>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        <!-- </section> -->
-                    </div>
+                        </article>
+                        <article class="time-line-row">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow"></span>
+                                        <span class="time-line-ico-box blue"></span>
+                                        <span class="time-line-subject blue"><i class="fa fa-cloud-upload"></i> System Test</span>
+                                        <div class="title">
+                                            <h1>23 June</h1>
+                                            <small class="text-muted">10:00 pm</small>
+                                        </div>
+                                        <p>Setup and configured full cloud server for the new project  <a href="#" class="blue-color">SlickLab</a></span></p>
 
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <!-- <section class="panel">
-                            <header class="panel-heading">
-                                Pie Chart
-                                <span class="tools pull-right">
-                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
-                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
-                                    <a class="t-close fa fa-times" href="javascript:;"></a>
-                                </span>
-                            </header> -->
-                            <div class="panel-body" style="width:0px;height:0px;">
-                                <div class="chartJS">
-                                    <canvas id="pie-chart-js" height="240" width="100%" ></canvas>
+                                    </div>
                                 </div>
                             </div>
-                        <!-- </section> -->
-                    </div>
-
-                    <div class="col-md-6" style="position:absolute;left: 20%;">
-                        <section class="panel">
-                            <header class="panel-heading">
-                                Donut Chart for User Food Preference
-                                <span class="tools pull-right">
-                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
-                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
-                                    <a class="t-close fa fa-times" href="javascript:;"></a>
-                                </span>
-                            </header>
-                            <div class="panel-body">
-                                <div class="chartJS">
-                                    <canvas id="donut-chart-js" height="300" width="100%" ></canvas>
+                        </article>
+                        <article class="time-line-row alt">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow-alt"></span>
+                                        <span class="time-line-ico-box red"></span>
+                                        <span class="time-line-subject red"><i class="fa fa-paw"></i> Activity</span>
+                                        <div class="title">
+                                            <h1>18 June</h1>
+                                            <small class="text-muted">10:00 pm</small>
+                                        </div>
+                                        <p><a class="red-color">Anthony Jones</a> Visited new project location and added 3 photo
+                                            of the project current status</p>
+                                        <div class="album pull-right">
+                                            <a href="#">
+                                                <img alt="" src="img/timeline/img-1.jpg">
+                                            </a>
+                                            <a href="#">
+                                                <img alt="" src="img/timeline/img-1.jpg">
+                                            </a>
+                                            <a href="#">
+                                                <img alt="" src="img/timeline/img-1.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </section>
+                        </article>
+                        <article class="time-line-row">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow"></span>
+                                        <span class="time-line-ico-box yellow"></span>
+                                        <span class="time-line-subject yellow"><i class="fa fa-send"></i> Milestone</span>
+                                        <div class="title">
+                                            <h1>23 June</h1>
+                                            <small class="text-muted">02:10 pm</small>
+                                        </div>
+                                        <p>
+                                            New milestone set for DiningPal project. New task added to the milestone
+                                        </p>
+                                        <ul>
+                                            <li><a class="red-color">New UI Elements</a></li>
+                                            <li><a class="blue-color">Shift to another server</a></li>
+                                            <li><a class="purple-color">Rebuild admin panel</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
                     </div>
+                </section>
+                <section class="panel-timeline">
+                    <div class="time-line-wrapper">
+                        <div class="time-line-caption">
+                            <!-- <h3 class="time-line-title">Yesterday</h3> -->
+                        </div>
+                        <article class="time-line-row alt">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow-alt"></span>
+                                        <span class="time-line-ico-box purple"></span>
+                                        <span class="time-line-subject purple"> <i class="fa fa-users"></i> Meeting</span>
+                                        <div class="title">
+                                            <h1>22 June</h1>
+                                            <small class="text-muted">12:00 pm</small>
+                                        </div>
+                                        <p>
+                                            Monthly Evulution meeting with <a class="green-color"> John Doe </a> , <a class="green-color"> Adam Smith</a> and <a class="green-color"> Pett Huu</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="time-line-row">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow"></span>
+                                        <span class="time-line-ico-box blue"></span>
+                                        <span class="time-line-subject blue"><i class="fa fa-cloud-upload"></i> System Task</span>
+                                        <div class="title">
+                                            <h1>22 June</h1>
+                                            <small class="text-muted">10:00 pm</small>
+                                        </div>
+                                        <p>Setup and configured full cloud server for the new project  <a class="blue-color">SlickLab</a></span></p>
 
-                </div>
-
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="time-line-row alt">
+                            <div class="time-line-info">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <span class="arrow-alt"></span>
+                                        <span class="time-line-ico-box red"></span>
+                                        <span class="time-line-subject red"><i class="fa fa-paw"></i> Activity</span>
+                                        <div class="title">
+                                            <h1>22 June</h1>
+                                            <small class="text-muted">10:00 pm</small>
+                                        </div>
+                                        <p><a class="red-color">Anthony Jones</a> Visited new project location and added 3 photo
+                                            of the project current status</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <!--timeline end-->
             </div>
             <!--body wrapper end-->
 
@@ -875,11 +924,6 @@
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
 <script src="js/sparkline/sparkline-init.js"></script>
-
-
-<!--Chart JS-->
-<script src="js/chart-js/chart.js"></script>
-<script src="js/chartJs-init.js"></script>
 
 
 <!--common scripts for all pages-->
