@@ -258,10 +258,10 @@
                     <div class="col-sm-12">
                         <section class="panel">
                             <header class="panel-heading ">
-                                Convertable Data Table
+
                                 <span class="tools pull-right">
                                     <a class="fa fa-repeat box-refresh" href="NewUI/javascript:;"></a>
-                                    <a class="t-close fa fa-times" href="NewUI/javascript:;"></a>
+                                    <!--<a class="t-close fa fa-times" href="NewUI/javascript:;"></a>-->
                                 </span>
                             </header>
                         <table class="table convert-data-table data-table">
@@ -296,6 +296,14 @@
                     </div>
 
                 </div>
+                <form style="padding:5px;margin-left:25px" action="deleteUser">
+                  Select <select name="email">
+                    <% results.forEach(function(r){%>
+                      <option value= "<%= r.email %>"><%= r.email%></option>
+                    <% }) %>
+                  </select> to
+                  <input type="submit" name ="deleteUser" value = "delete user">
+                </form>
 
 
 

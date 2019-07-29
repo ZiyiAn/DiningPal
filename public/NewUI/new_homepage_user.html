@@ -43,14 +43,23 @@
 
 </head>
 
-<body  class="sticky-header" onload="changeName()">
+<script type="text/javascript">
+    function changeName(){
+      $.get("/getUsername", (data)=>{
+        console.log("change username");
+        document.getElementById("user_name").innerHTML=data.username;
+      })
+    }
+</script>
+<body class="sticky-header" onload="changeName()">
 
     <section>
         <!-- sidebar left start-->
+                <!-- sidebar left start-->
         <div class="sidebar-left">
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
-                <a href="new_homepage.html">
+                <a href="new_homepage_user.html">
                     <img src="img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">DiningPal</span>
@@ -68,15 +77,15 @@
                     <li>
                         <h3 class="navigation-title">Navigation</h3>
                     </li>
-                    <li class="active"><a href="new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                    <form id = "getdb" action="/database"></form>
-                    <li><a href="#" onclick= "document.getElementById('getdb').submit()"><i class="fa fa-th-list"></i> <span>User Database</span></a>
-                    </li>
+                    <li class="active"><a href="new_homepage_user.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
 
                     <li><a href="https://chatingroom.herokuapp.com"><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
                     </li>
 
-                    <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    <li><a href="google-map_user.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                    </li>
+
+                    <li><a href="form-validation_user.html"><i class="fa fa-user"></i> <span>Profile</span></a>
                     </li>
 
                     <li>
@@ -84,70 +93,13 @@
                     </li>
                     <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
                         <ul class="child-list">
-                            <li><a href="calendar.html"> Calendar</a></li>
-                            <li><a href="timeline.html"> Timeline </a></li>
-                            <li><a href="gallery.html"> Gallery </a></li>
+                            <li><a href="calendar_user.html"> Calendar</a></li>
+                            <li><a href="timeline_user.html"> Timeline </a></li>
+                            <li><a href="gallery_user.html"> Gallery </a></li>
                         </ul>
                     </li>
-
-
-
-                    <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
-                        <ul class="child-list">
-                            <li><a href="form-wizard.html"> Account Register</a></li>
-                            <li><a href="form-validation.html"> Account Validation</a></li>
-                        </ul>
-                    </li>
-<!--
-
-                    <li>
-                        <h3 class="navigation-title">Extra</h3>
-                    </li> -->
-
-
-<!--                     <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
-                        <ul class="child-list">
-                            <li><a href="profile.html"> Profile</a></li>
-                            <li><a href="invoice.html"> Invoice</a></li>
-                            <li><a href="login.html"> Login </a></li>
-                            <li><a href="registration.html"> Registration </a></li>
-                            <li><a href="lock.html"> Lock Screen </a></li>
-                            <li><a href="404.html"> 404 Error</a></li>
-                            <li><a href="500.html"> 500 Error</a></li>
-
-                        </ul>
-                    </li> -->
 
                 </ul>
-                <!--sidebar nav end-->
-
-                <!--sidebar widget start-->
-                <div class="sidebar-widget">
-                    <h4>Server Status</h4>
-                    <ul class="list-group">
-                        <li>
-                            <span class="label label-danger pull-right">33%</span>
-                            <p>Server Usage</p>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-danger" style="width: 33%;">
-                                    <span class="sr-only">33%</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li>
-                            <span class="label label-warning pull-right">65%</span>
-                            <p>Bandwidth</p>
-                            <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-warning" style="width: 65%;">
-                                    <span class="sr-only">65%</span>
-                                </div>
-                            </div>
-                        </li>
-                        <li><a href="javascript:;" class="btn btn-success btn-sm ">View Details</a></li>
-                    </ul>
-                </div>
-                <!--sidebar widget end-->
-
             </div>
         </div>
         <!-- sidebar left end-->
@@ -160,7 +112,7 @@
 
                 <!--logo and logo icon start-->
                 <div class="logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="new_homepage.html">
+                    <a href="new_homepage_user.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                         <span class="brand-name">DiningPal</span>
@@ -168,7 +120,7 @@
                 </div>
 
                 <div class="icon-logo dark-logo-bg hidden-xs hidden-sm">
-                    <a href="new_homepage.html">
+                    <a href="new_homepage_user.html">
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                     </a>
@@ -540,8 +492,9 @@
                                 </a>
                                 <a href="javascript:;" class="single-mail">
                                         <span class="icon bg-warning">
-                                            <i class="fa fa-warning"></i>
-                                        </span> Application Error
+                                            <i class="fa fa-envelope-o"></i>
+                                        </span>
+                                        <span class="green-color">Charles Zhao</span> send you a mail
                                     <p>
                                         <small> 2 Days Ago</small>
                                     </p>
@@ -551,9 +504,9 @@
                                 </a>
                                 <a href="javascript:;" class="single-mail">
                                         <span class="icon bg-dark">
-                                           <i class="fa fa-database"></i>
+                                           <i class="fa fa-comments-o"></i>
                                         </span>
-                                    <strong>Database Overloaded 24%</strong>
+                                    <span class="blue-color">Patrick Wang</span> mentioned you a post
                                     <p>
                                         <small>1 Week Ago</small>
                                     </p>
@@ -563,9 +516,9 @@
                                 </a>
                                 <a href="javascript:;" class="single-mail">
                                         <span class="icon bg-danger">
-                                            <i class="fa fa-warning"></i>
+                                            <i class="fa fa-envelope-o"></i>
                                         </span>
-                                    <strong>Server Failed Notification</strong>
+                                    <span class="yellow-color">Bowen Ming</span> send you a mail
 
                                     <p>
                                         <small>10 Days Ago</small>
@@ -796,12 +749,7 @@
 
 
 <script type="text/javascript">
-    function changeName(){
-      $.get("/getUsername", (data)=>{
-        console.log("change username");
-        document.getElementById("user_name").innerHTML=data.username;
-      })
-    }
+
     $(document).ready(function() {
 
         //countTo
@@ -830,6 +778,7 @@
           lat = String(position.coords.latitude);
           lng = String(position.coords.longitude);
           console.debug(position);
+          $.get('/sendLocation',{x:lat, y:lng},function(data){})
           $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&appid=405aedac1b82d1ee20b4d0b217ac3079", function(data){
             // console.log(data);
             document.getElementById("temperature").innerText = Math.round(data.main.temp - 273.15);
