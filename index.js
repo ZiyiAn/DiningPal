@@ -206,6 +206,26 @@ express()
     }
   })
 
+  .get('/update',async(req, res)=>{
+    try{
+      const client = await pool.connect()
+      var query = "update users set username=($1),password=($2) where email=($8)";
+
+      var info = [req.query.username, req.query.password, req.query.email];
+      await client.query(query, info, function(err, result){
+        if (err){
+          console.log("Query error: " + err );
+          res.render('pages/error',{message:"Update failed!"})
+        }
+        else {
+          console.log("Update succeed")
+          //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
+          res.redirect('/NewUI/form-validation.html')
+          client.release();
+        }
+        res.end()
+  })
+
   .get('/sendLocation', async (req, res)=>{
     var myUser = req.session.myUser
     if(myUser){
