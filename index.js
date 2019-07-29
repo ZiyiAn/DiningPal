@@ -106,7 +106,11 @@ express()
                 username:result.rows[0].username,
                 email:result.rows[0].email,
                 isadmin:result.rows[0].isadmin,//true
-
+                western:result.rows[0].western,
+                europe:result.rows[0].europe,
+                asia:result.rows[0].asia,
+                indian:result.rows[0].indian,
+                mexican:result.rows[0].mexican,
               }
               //req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
@@ -123,9 +127,13 @@ express()
             })
             req.session.myUser = {
               username:result.rows[0].username,
-              email:result.rows[0].email,
-              isadmin:result.rows[0].isadmin//false
-              //and any other info useful
+                email:result.rows[0].email,
+                isadmin:result.rows[0].isadmin,//true
+                western:result.rows[0].western,
+                europe:result.rows[0].europe,
+                asia:result.rows[0].asia,
+                indian:result.rows[0].indian,
+                mexican:result.rows[0].mexican,
             }
             res.redirect('/NewUI/new_homepage_user.html')
           }
@@ -167,6 +175,11 @@ express()
             username:req.query.username,
             email:req.query.email,
             isadmin:false//false
+            western:false,
+            europe:false,
+            asia:false,
+            indian:false,
+            mexican:false,
             //and any other info useful
           }
           //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
@@ -216,15 +229,12 @@ express()
       await client.query(query, info, function(err, result){
         if (err){
           console.log("Query error: " + err );
-          /*do something if username exist
-          // res.send("Query error: " + err);
-          */
           res.render('pages/error',{message:"Update failed!"})
         }
         else {
           console.log("Update succeed")
           //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.redirect('/NewUI/form-validation_user.html')
+          res.redirect('/NewUI/form-validation.html')
           client.release();
         }
         res.end()
