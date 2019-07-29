@@ -206,26 +206,26 @@ express()
     }
   })
 
-  .get('/update',async(req, res)=>{
-    try{
-      var myUser = req.session.myUser
-      const client = await pool.connect()
-      var query = "update users set username=($1),password=($2) where email=($3)";
+  // .get('/update',async(req, res)=>{
+  //   try{
+  //     var myUser = req.session.myUser
+  //     const client = await pool.connect()
+  //     var query = "update users set username=($1),password=($2) where email=($3)";
 
-      var info = [req.query.username, req.query.password, myUser.email];
-      await client.query(query, info, function(err, result){
-        if (err){
-          console.log("Query error: " + err );
-          res.render('pages/error',{message:"Update failed!"})
-        }
-        else {
-          console.log("Update succeed")
-          res.redirect('/NewUI/form-validation.html')
-          client.release();
-        }
-        res.end()
+  //     var info = [req.query.username, req.query.password, myUser.email];
+  //     await client.query(query, info, function(err, result){
+  //       if (err){
+  //         console.log("Query error: " + err );
+  //         res.render('pages/error',{message:"Update failed!"})
+  //       }
+  //       else {
+  //         console.log("Update succeed")
+  //         res.redirect('/NewUI/form-validation.html')
+  //         client.release();
+  //       }
+  //       res.end()
 
-  })
+  // })
 
   .get('/sendLocation', async (req, res)=>{
     var myUser = req.session.myUser
