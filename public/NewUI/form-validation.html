@@ -35,7 +35,7 @@
       $.get("/getUsername", (data)=>{
         console.log("change username");
         document.getElementById("user_name").innerHTML=data.username;
-        document.getElementById("email").placeholder=data.email;
+        document.getElementById("email").value=data.email;
         document.getElementById("username").placeholder=data.username;
         document.getElementById("Western").checked=data.western;
         document.getElementById("Europe").checked=data.europe;
@@ -327,7 +327,7 @@
                             </header>
                             <div class="panel-body">
                                 <div class="form">
-                                    <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="">
+                                    <form class="cmxform form-horizontal tasi-form" id="UpdateForm" method="get" action="update">
                                         <!-- <div class="form-group ">
                                             <label for="firstname" class="control-label col-lg-2">Firstname *</label>
                                             <div class="col-lg-10">
@@ -375,31 +375,31 @@
                                             <label for="Western" class="control-label m-t-less-6 col-lg-2 col-sm-3">Western</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Western" name="Western"/>
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="western" name="western"/>
                                             </div>
                                             <!-- </div> -->
                                             <label for="Europe" class="control-label m-t-less-6 col-lg-2 col-sm-3">Europe</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Europe" name="Europe" />
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="europe" name="europe" />
                                             </div>
 
                                             <label for="Asia" class="control-label m-t-less-6 col-lg-2 col-sm-3">Asia</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Asia" name="Asia" />
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="asia" name="asia" />
                                             </div>
 
                                             <label for="Indian" class="control-label m-t-less-6 col-lg-2 col-sm-3">Indian</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Indian" name="Indian" />
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="indian" name="indian" />
                                             </div>
 
                                             <label for="Mexican" class="control-label m-t-less-6 col-lg-2 col-sm-3">Mexican</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Mexican" name="Mexican" />
+                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="mexican" name="mexican" />
                                             </div>
 
                                         </div>

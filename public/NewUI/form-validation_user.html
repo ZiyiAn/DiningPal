@@ -35,7 +35,7 @@
       $.get("/getUsername", (data)=>{
         console.log("change username");
         document.getElementById("user_name").innerHTML=data.username;
-        document.getElementById("email").placeholder=data.email;
+        document.getElementById("email").value=data.email;
         document.getElementById("username").placeholder=data.username;
         document.getElementById("Western").checked=data.western;
         document.getElementById("Europe").checked=data.europe;
