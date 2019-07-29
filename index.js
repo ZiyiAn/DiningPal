@@ -209,7 +209,7 @@ express()
   .get('/update',async(req, res)=>{
     try{
       const client = await pool.connect()
-      var query = "update users set username=($1),password=($2) where email=($8)";
+      var query = "update users set username=($1),password=($2) where email=($3)";
 
       var info = [req.query.username, req.query.password, req.query.email];
       await client.query(query, info, function(err, result){
