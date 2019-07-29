@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=devicec-width, initial-scale=1.0">
+    <mete http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map</title>
+    <style media="screen">
+      #map{
+        height:400px;
+        width:100%;
+      }
+    </style>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCbNx1beBZetrfJD7TfChli81tuX3-zx58
+    &callback=initMap" type="text/javascript"></script>
+  </head>
+  <body>
+    <h1>My google map</h1>
+    <div id="map"></div>
+    <script type="text/javascript">
+
+
+      window.onload=getLocation();
+      var x=document.getElementById("demo");
+      function getLocation()
+        {
+        if (navigator.geolocation)
+          {
+          navigator.geolocation.getCurrentPosition(showPosition,showError);
+          }
+        else{x.innerHTML="Geolocation is not supported by this browser.";}
+        }
+
+
+      function showPosition(position)
+        {
+        lat=position.coords.latitude;
+        lon=position.coords.longitude;
+        latlon=new google.maps.LatLng(lat, lon)
+        mapholder=document.getElementById('map')
+        mapholder.style.height='700px';
+        mapholder.style.width='1200px';
+
+        var myOptions={
+        center:latlon,zoom:14,
+        mapTypeId:google.maps.MapTypeId.ROADMAP,
+        mapTypeControl:false,
+        navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+        };
+        var map=new google.maps.Map(document.getElementById("map"),myOptions);
+        var marker=new google.maps.Marker({position:latlon,map:map,title:$.get("/get_Username",function(data){
+        	if(data.message){
+            return data.message
+        	}
+        });
+        });
+        }
+
+
+      function showError(error)
+        {
+        switch(error.code)
+          {
+          case error.PERMISSION_DENIED:
+            x.innerHTML="User denied the request for Geolocation."
+            break;
+          case error.POSITION_UNAVAILABLE:
+            x.innerHTML="Location information is unavailable."
+            break;
+          case error.TIMEOUT:
+            x.innerHTML="The request to get user location timed out."
+            break;
+          case error.UNKNOWN_ERROR:
+            x.innerHTML="An unknown error occurred."
+            break;
+          }
+        }
+
+        // function addMarker(props){
+        //   var marker = new google.maps.Marker({
+        //     position:props.coords,
+        //     map:map,
+        //     icon:props.iconImage
+        //   });
+        //   if(props.iconImage){
+        //     marker.setIcon(props.iconImage)
+        //   }
+        //
+        //   if(props.content){
+        //     var infoWindow = new google.maps.InfoWindow({
+        //       content:props.content
+        //     });
+        //
+        //     marker.addListener('click',function(){
+        //       infoWindow.open(map,marker);
+        //     });
+        //   }
+
+
+      // function initMap(){
+      //   var options = {
+      //     zoom:8,
+      //     center: {lat:49.267132, lng:-122.968941}
+      //   }
+      //
+      //   function addMarker(props){
+      //     var marker = new google.maps.Marker({
+      //       position:props.coords,
+      //       map:map,
+      //       icon:props.iconImage
+      //     });
+      //     if(props.iconImage){
+      //       marker.setIcon(props.iconImage)
+      //     }
+      //
+      //     if(props.content){
+      //       var infoWindow = new google.maps.InfoWindow({
+      //         content:props.content
+      //       });
+      //
+      //       marker.addListener('click',function(){
+      //         infoWindow.open(map,marker);
+      //       });
+      //     }
+      //
+      //   }
+
+        // var map= new google.maps.Map(document.getElementById('map'),options)
+        // google.maps.event.addListener(map,'click',function(event){
+        //   addMarker({coords:event.latLng})
+        // })
+
+
+        // var marker = new google.maps.Marker({
+        //   position:{lat:49.267132, lng:-122.968941},
+        //   map:map,
+        //   icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+        // });
+        //
+        //
+        // var infoWindow = new google.maps.InfoWindow({
+        //   content:'<h1>Burnaby</h1>'
+        // });
+        //
+        // marker.addListener('click',function(){
+        //   infoWindow.open(map,marker);
+        // });
+
+        // var markers = [
+        //   {coords:{lat:49.267132, lng:-122.968941},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        //     content:'<h1>Burnaby</h1>'
+        //   },
+        //   {coords:{lat:49.267132, lng:-121.968941}},
+        //   {coords:{lat:47.246292, lng:-124.116226}}
+        //
+        // ];
+
+        // for (var i=0; i< markers.length;i++){
+        //   addMarker(markers[i])
+        // }
+
+        // addMarker({coords:{lat:49.267132, lng:-122.968941},iconImage:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+        //   content:'<h1>Burnaby</h1>'
+        // });
+        // addMarker({coords:{lat:49.267132, lng:-121.968941}});
+        // addMarker({coords:{lat:47.246292, lng:-124.116226}});
+
+      }
+    </script>
+  </body>
+</html>
