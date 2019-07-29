@@ -51,7 +51,7 @@ express()
     }
   })
 
-  .get('/home', (req, res ) => {//for testing
+  /*.get('/home', (req, res ) => {//for testing
     //console.log("Welcome back")
     var myUser = req.session.myUser
     //var isAdmin = req.session.isAdmin
@@ -71,7 +71,7 @@ express()
         //res.render('pages/index')
         res.redirect('/startpage.html')
     }
-  })
+  })*/
 
   .get('/signin', async (req,res)=>{
     try{
