@@ -106,11 +106,6 @@ express()
                 username:result.rows[0].username,
                 email:result.rows[0].email,
                 isadmin:result.rows[0].isadmin,//true
-                western:result.rows[0].western,
-                europe:result.rows[0].europe,
-                asia:result.rows[0].asia,
-                indian:result.rows[0].indian,
-                mexican:result.rows[0].mexican,
               }
               //req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
@@ -127,13 +122,9 @@ express()
             })
             req.session.myUser = {
               username:result.rows[0].username,
-                email:result.rows[0].email,
-                isadmin:result.rows[0].isadmin,//true
-                western:result.rows[0].western,
-                europe:result.rows[0].europe,
-                asia:result.rows[0].asia,
-                indian:result.rows[0].indian,
-                mexican:result.rows[0].mexican,
+              email:result.rows[0].email,
+              isadmin:result.rows[0].isadmin//false
+              //and any other info useful
             }
             res.redirect('/NewUI/new_homepage_user.html')
           }
@@ -175,11 +166,6 @@ express()
             username:req.query.username,
             email:req.query.email,
             isadmin:false//false
-            western:false,
-            europe:false,
-            asia:false,
-            indian:false,
-            mexican:false,
             //and any other info useful
           }
           //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
@@ -218,26 +204,6 @@ express()
       console.log("user not logged in")
       res.send({username:"None"})
     }
-  })
-
-  .get('/update',async(req, res)=>{
-    try{
-      const client = await pool.connect()
-      var query = "update users set username=($1),password=($2),western=($3),europe=($4),asia=($5),indian=($6),mexican=($7) where email=($8)";
-
-      var info = [req.query.username, req.query.password, req.query.western, req.query.europe, req.query.asia, req.query.indian, req.query.mexican, req.query.email];
-      await client.query(query, info, function(err, result){
-        if (err){
-          console.log("Query error: " + err );
-          res.render('pages/error',{message:"Update failed!"})
-        }
-        else {
-          console.log("Update succeed")
-          //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
-          res.redirect('/NewUI/form-validation.html')
-          client.release();
-        }
-        res.end()
   })
 
   .get('/sendLocation', async (req, res)=>{
