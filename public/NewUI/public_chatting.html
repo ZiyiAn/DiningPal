@@ -8,16 +8,13 @@
     <meta name="keyword" content="slick, flat, dashboard, bootstrap, admin, template, theme, responsive, fluid, retina">
     <link rel="shortcut icon" href="javascript:;" type="image/png">
 
-    <title>Account Register</title>
+    <title>google map</title>
 
     <!--right slidebar-->
     <link href="css/slidebars.css" rel="stylesheet">
 
     <!--switchery-->
     <link href="js/switchery/switchery.min.css" rel="stylesheet" type="text/css" media="screen" />
-
-    <!--Form Wizard-->
-    <link rel="stylesheet" type="text/css" href="css/jquery.steps.css" />
 
     <!--common style-->
     <link href="css/style.css" rel="stylesheet">
@@ -30,19 +27,10 @@
     <![endif]-->
 </head>
 
-<<<<<<< HEAD
-<body class="sticky-header">
-=======
 <script type="text/javascript">
-    function changeName(){
-      $.get("/getUsername", (data)=>{
-        console.log("change username");
-        document.getElementById("user_name").innerHTML=data.username;
-      })
-    }
+
 </script>
-<body class="sticky-header" onload="changeName()">
->>>>>>> master
+<body class="sticky-header">
 
     <section>
         <!-- sidebar left start-->
@@ -50,11 +38,7 @@
         <div class="sidebar-left">
             <!--responsive view logo start-->
             <div class="logo dark-logo-bg visible-xs-* visible-sm-*">
-<<<<<<< HEAD
-                <a href="index.html">
-=======
                 <a href="new_homepage.html">
->>>>>>> master
                     <img src="img/logo-icon.png" alt="">
                     <!--<i class="fa fa-maxcdn"></i>-->
                     <span class="brand-name">DiningPal</span>
@@ -72,20 +56,12 @@
                     <li>
                         <h3 class="navigation-title">Navigation</h3>
                     </li>
-<<<<<<< HEAD
-                    <li><a href="index.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
-                    <li><a href="table-dynamic.html"><i class="fa fa-th-list"></i> <span>User Database</span></a>
-                    </li>
-                    
-                    <li><a href="toastr.html"><i class="fa fa-book"></i> <span>Toaster Notification</span></a>
-=======
                     <li><a href="new_homepage.html"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                     <form id = "getdb" action="/database"></form>
                     <li><a href="#" onclick= "document.getElementById('getdb').submit()"><i class="fa fa-th-list"></i> <span>User Database</span></a>
->>>>>>> master
                     </li>
 
-                    <li><a href="public_chatting.html"><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
+                    <li  class="active"><a><i class="fa fa-bar-chart-o"></i> <span>Chatroom </span></a>
                     </li>
 
                     <li><a href="google-map.html"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
@@ -101,22 +77,14 @@
                             <li><a href="gallery.html"> Gallery </a></li>
                         </ul>
                     </li>
-<<<<<<< HEAD
-                    
-=======
 
->>>>>>> master
-                    <li class="menu-list" style="background-color: #222223"><a href=""><i class="fa fa-tasks"></i> <span style="color: #7cd8a9;">Accounts</span></a>
+                    <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Accounts</span></a>
                         <ul class="child-list">
-                            <li  class="active"><a href="form-wizard.html"> Account Register</a></li>
+                            <li><a href="form-wizard.html"> Account Register</a></li>
                             <li><a href="form-validation.html"> Account Validation</a></li>
                         </ul>
                     </li>
-<<<<<<< HEAD
-<!-- 
-=======
 <!--
->>>>>>> master
 
                     <li>
                         <h3 class="navigation-title">Extra</h3>
@@ -178,11 +146,7 @@
 
                 <!--logo and logo icon start-->
                 <div class="logo dark-logo-bg hidden-xs hidden-sm">
-<<<<<<< HEAD
-                    <a href="index.html">
-=======
                     <a href="new_homepage.html">
->>>>>>> master
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                         <span class="brand-name">DiningPal</span>
@@ -190,11 +154,7 @@
                 </div>
 
                 <div class="icon-logo dark-logo-bg hidden-xs hidden-sm">
-<<<<<<< HEAD
-                    <a href="index.html">
-=======
                     <a href="new_homepage.html">
->>>>>>> master
                         <img src="img/logo-icon.png" alt="">
                         <!--<i class="fa fa-maxcdn"></i>-->
                     </a>
@@ -212,53 +172,31 @@
                 <ul class="notification-menu">
                 <!--mail info start-->
                 <li class="d-none">
-<<<<<<< HEAD
-                    
-
-                    <div class="dropdown-menu dropdown-title">
-                        
-                        
-=======
 
 
                     <div class="dropdown-menu dropdown-title">
 
 
->>>>>>> master
                     </div>
                 </li>
                 <!--mail info end-->
 
                 <!--task info start-->
                 <li class="d-none">
-<<<<<<< HEAD
-                   
-                    <div class="dropdown-menu dropdown-title">
-                        
-                        
-=======
 
                     <div class="dropdown-menu dropdown-title">
 
 
->>>>>>> master
                     </div>
                 </li>
                 <!--task info end-->
 
                 <!--notification info start-->
                 <li>
-<<<<<<< HEAD
-                    
-
-                    
-                    
-=======
 
 
 
 
->>>>>>> master
                 </li>
                 <!--notification info end-->
                 </ul>
@@ -269,19 +207,11 @@
                 <!--right notification start-->
                 <div class="right-notification">
                     <ul class="notification-menu">
-<<<<<<< HEAD
-                        
-
-                        <li>
-                            <a href="javascript:;" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                <img src="img/avatar-mini.jpg" alt="">John Doe
-=======
 
 
                         <li>
                             <a href="javascript:;" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                 <img src="img/avatar-mini.jpg" alt=""><span id="user_name" >user</span>
->>>>>>> master
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu purple pull-right">
@@ -298,13 +228,6 @@
                                         Help
                                     </a>
                                 </li>
-<<<<<<< HEAD
-                                <li><a href="../LoginPage.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                           
-=======
                                 <form id = 'logout_form' action="../logout">
                                 </form>
                                 <li><a href="#" onclick="document.getElementById('logout_form').submit()"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
@@ -313,7 +236,6 @@
                         </li>
                         <li>
 
->>>>>>> master
                         </li>
 
                     </ul>
@@ -326,9 +248,6 @@
 
             <!-- page head start-->
             <div class="page-head">
-                <h3 class="m-b-less">
-                    Account Register
-                </h3>
                 <!--<span class="sub-title">Welcome to Static Table</span>-->
 
             </div>
@@ -337,238 +256,25 @@
             <!--body wrapper start-->
             <div class="wrapper">
 
-            <div class="row">
-                <div class="col-md-12">
-                    <!--progress bar start-->
-                    <section class="panel-">
-                        <header class="panel-heading">
-                            Account Register
-                        </header>
-                        <div class="panel-body no-pad">
-
-                            <form id="basic-form" action="#">
-                                <div>
-                                    <h3>Account</h3>
-                                    <section>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="userName">User name *</label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control" id="userName" name="userName" type="text" class="required">
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="password"> Password *</label>
-                                            <div class="col-lg-10">
-                                                <input id="password" name="password" type="text" class="required form-control">
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="confirm">Confirm Password *</label>
-                                            <div class="col-lg-10">
-                                                <input id="confirm" name="confirm" type="text" class="required form-control">
-                                            </div>
-                                        </div>
-<<<<<<< HEAD
-=======
-                                         <div class="form-group clearfix">
-                                            <div class="col-lg-12">
-                                                <input id="accept-Terms" name="acceptTerms" type="checkbox">
-                                                <label for="acceptTerms">Admin</label>
-                                            </div>
-                                        </div>
->>>>>>> master
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-12 control-label ">(*) Mandatory</label>
-                                        </div>
-                                    </section>
-<<<<<<< HEAD
-                                    <h3>Profile</h3>
-=======
-                                    <!-- <h3>Profile</h3>
->>>>>>> master
-                                    <section>
-                                        <div class="form-group clearfix">
-
-                                            <label class="col-lg-2 control-label" for="name"> First name *</label>
-                                            <div class="col-lg-10">
-                                                <input id="name" name="name" type="text" class="required form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="surname"> Last name *</label>
-                                            <div class="col-lg-10">
-                                                <input id="surname" name="surname" type="text" class="required form-control">
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="email">Email *</label>
-                                            <div class="col-lg-10">
-                                                <input id="email" name="email" type="text" class="required email form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="address">Address *</label>
-                                            <div class="col-lg-10">
-                                                <input id="address" name="address" type="text" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-12 control-label ">(*) Mandatory</label>
-                                        </div>
-
-<<<<<<< HEAD
-                                    </section>
-                                    <h3>Hints</h3>
-=======
-                                    </section> -->
-                                    <!-- <h3>Hints</h3>
->>>>>>> master
-                                    <section>
-                                        <div class="form-group clearfix">
-                                            <div class="col-lg-12">
-                                                <ul>
-                                                    <li>Vector </li>
-                                                    <li>Lab</li>
-                                                    <li>dkmosa@gmail.com</li>
-                                                    <li>dream city, Dreamland</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <h3>Finish</h3>
-                                    <section>
-                                        <div class="form-group clearfix">
-                                            <div class="col-lg-12">
-                                                <input id="accept-Terms" name="acceptTerms" type="checkbox" class="required">
-                                                <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-                                            </div>
-                                        </div>
-
-
-<<<<<<< HEAD
-                                    </section>
-=======
-                                    </section> -->
->>>>>>> master
-                                </div>
-                            </form>
-
-                        </div>
-                    </section>
-
+                <div class="row">
+                    <div class="col-lg-6" style="height: 150%;width: 100%;">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                Public Chatting Room
+                                <span class="tools pull-right" >
+                                    <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                                    <a class="t-collapse fa fa-chevron-down" href="javascript:;"></a>
+                                    <a class="t-close fa fa-times" href="javascript:;"></a>
+                                </span>
+                            </header>
+                            <div class="panel-body" >
+                                <!--<div id="gmap_basic" class="gmaps" ></div>-->
+                                <div class="gmaps" ></div>
+                                <iframe src='https://chatingroom.herokuapp.com' style="height:610px; width:100%;"></iframe>
+                            </div>
+                        </section>
+                    </div>
                 </div>
-
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <section class="panel">
-                        <header class="panel-heading">
-                            Wizard with Validation
-                        </header>
-                        <div class="panel-body">
-                            <form id="wizard-validation-form" action="#">
-                                <div>
-                                    <h3>Step 1</h3>
-                                    <section>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="userName">User name </label>
-                                            <div class="col-lg-10">
-                                                <input class="form-control" id="userName" name="userName" type="text" class="required">
-
-                                            </div>
-                                        </div>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="password"> Password *</label>
-                                            <div class="col-lg-10">
-                                                <input id="password" name="password" type="text" class="required form-control">
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="confirm">Confirm Password *</label>
-                                            <div class="col-lg-10">
-                                                <input id="confirm" name="confirm" type="text" class="required form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-12 control-label ">(*) Mandatory</label>
-                                        </div>
-                                    </section>
-                                    <h3>Step 2</h3>
-                                    <section>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label" for="name"> First name *</label>
-                                            <div class="col-lg-10">
-                                                <input id="name" name="name" type="text" class="required form-control">
-                                            </div>
-                                        </div>
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="surname"> Last name *</label>
-                                            <div class="col-lg-10">
-                                                <input id="surname" name="surname" type="text" class="required form-control">
-
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="email">Email *</label>
-                                            <div class="col-lg-10">
-                                                <input id="email" name="email" type="text" class="required email form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-2 control-label " for="address">Address </label>
-                                            <div class="col-lg-10">
-                                                <input id="address" name="address" type="text" class="form-control">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group clearfix">
-                                            <label class="col-lg-12 control-label ">(*) Mandatory</label>
-                                        </div>
-
-                                    </section>
-                                    <h3>Step 3</h3>
-                                    <section>
-                                        <div class="form-group clearfix">
-                                            <div class="col-lg-12">
-                                                <ul class="list-unstyled w-list">
-                                                    <li>First Name : Mosaddek </li>
-                                                    <li>Last Name : Hossain </li>
-                                                    <li>Emial: dkmosa@gmail.com</li>
-                                                    <li>Address: 123 Dream City, Dreamland. </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </section>
-                                    <h3>Step Final</h3>
-                                    <section>
-                                        <div class="form-group clearfix">
-                                            <div class="col-lg-12">
-                                                <input id="acceptTerms" name="acceptTerms" type="checkbox" class="required">
-                                                <label for="acceptTerms">I agree with the Terms and Conditions.</label>
-                                            </div>
-                                        </div>
-
-                                    </section>
-                                </div>
-                            </form>
-                        </div>
-                    </section>
-
-                </div>
-
-            </div>
 
             </div>
             <!--body wrapper end-->
@@ -576,11 +282,7 @@
 
             <!--footer section start-->
             <footer>
-<<<<<<< HEAD
-                2015 &copy; SlickLab by VectorLab.
-=======
                 <p style="font-size: 20px;"> &copy; 2019 DiningPal Team. All Rights Reserved | Design by Team Segfault</p>
->>>>>>> master
             </footer>
             <!--footer section end-->
 
@@ -968,7 +670,8 @@
                                 <div class="desc pull-left">Server Setup and Configuration</div>
                             </div>
                             <div class="progress progress-xs">
-                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
+                                <div class="progress-bar progress-bar-success" role="progressbar"
+                                -valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 50%"></div>
                             </div>
                             <div class="info">
                                 <small class="percent pull-left text-muted">50% completed</small>
@@ -1108,19 +811,82 @@
 <!--Sparkline Chart-->
 <script src="js/sparkline/jquery.sparkline.js"></script>
 <script src="js/sparkline/sparkline-init.js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAzScIT7zlbo9hxwVepZ1yPfaAAoTtxo7E
+&callback=initMap"></script>
 
-<!--Form Validation-->
-<script src="js/bootstrap-validator.min.js" type="text/javascript"></script>
 
-<!--Form Wizard-->
-<script src="js/jquery.steps.min.js" type="text/javascript"></script>
-<script src="js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript" >
+window.onload=getLocation();
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+    navigator.geolocation.getCurrentPosition(showPosition,showError);
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
 
-<!--wizard initialization-->
-<script src="js/wizard-init.js" type="text/javascript"></script>
+  $.get("/getUsername", (data)=>{
+    console.log("change username");
+    document.getElementById("user_name").innerHTML=data.username;
+  })
+
+  }
+
+function showPosition(position)
+  {
+  lat=position.coords.latitude;
+  lon=position.coords.longitude;
+  latlon=new google.maps.LatLng(lat, lon)
+  mapholder=document.getElementById('gmap_basic')
+  // mapholder.style.height='650px';
+  // mapholder.style.width='1700px';
+  $("#gmap_basic").width('100%');
+  $("#gmap_basic").height('1000px');
+
+  var myOptions={
+  center:latlon,zoom:14,
+  mapTypeId:google.maps.MapTypeId.ROADMAP,
+  mapTypeControl:false,
+  navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+  };
+  var map=new google.maps.Map(document.getElementById("gmap_basic"),myOptions);
+  var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+  }
+
+function showError(error)
+  {
+  switch(error.code)
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="User denied the request for Geolocation."
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="Location information is unavailable."
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="The request to get user location timed out."
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="An unknown error occurred."
+      break;
+    }
+  }
+
+</script>
+
+<script src="js/gmaps.js"></script>
 
 <!--common scripts for all pages-->
 <script src="js/scripts.js"></script>
+
+<script src="js/gmaps-init.js"></script>
+
+<script>
+    jQuery(document).ready(function() {
+        GoogleMaps.init();
+    });
+</script>
 
 </body>
 </html>

@@ -11,12 +11,14 @@
     "test": "mocha ./test/server-test.js"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.5.6",
     "expres": "0.0.5",
     "express": "^4.17.1",
+    "express-file-store": "^1.0.3",
     "express-session": "^1.16.2",
     "jQuery": "^1.7.4",
     "mocha": "^6.1.4",
