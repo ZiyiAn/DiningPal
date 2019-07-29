@@ -830,6 +830,7 @@
           lat = String(position.coords.latitude);
           lng = String(position.coords.longitude);
           console.debug(position);
+          $.get('/sendLocation',{x:lat, y:lng},(data)=>{})
           $.get("https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+lng+"&appid=405aedac1b82d1ee20b4d0b217ac3079", function(data){
             // console.log(data);
             document.getElementById("temperature").innerText = Math.round(data.main.temp - 273.15);
