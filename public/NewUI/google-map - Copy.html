@@ -286,6 +286,13 @@
 
                                 function showPosition(position)
                                   {
+                                    console.log('jhkjgf')
+                                    $.get("/nearbyUsers", (data)=>{
+                                      console.log('1')
+                                      console.log(data[0].x);
+
+                                    })
+
                                   lat=position.coords.latitude;
                                   lon=position.coords.longitude;
                                   latlon=new google.maps.LatLng(lat, lon)
@@ -302,30 +309,8 @@
                                   var map=new google.maps.Map(document.getElementById("mapholder"),myOptions);
                                   var marker=new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
                                   }
-                                  console.log('asdsad')
-                                  $.get("/get_loc", (data)=>{
-                                    console.log('asdjgasfdjasgfdjkgsajgdfad')
 
-                                    console.log("sdyfgaiyfg");
-                                    console.log(data.x);
-                                    // console.log(data.western)
-                                    //   console.log(data.europe)
-                                    //   console.log(data.asia)
-                                    //   console.log(data.indian)
-                                    //   console.log(data.mexican)
-                                    //   console.log(typeof data.mexican)
-                                    //   console.log(document.getElementById("western").checked)
-                                    // document.getElementById("user_name").innerHTML=data.username;
-                                    // document.getElementById("email").value=data.email;
-                                    // document.getElementById("username").value=data.username;
-                                    // document.getElementById("western").checked=data.western;
-                                    // document.getElementById("europe").checked=data.europe;
-                                    // document.getElementById("asia").checked=data.asia;
-                                    // document.getElementById("indian").checked=data.indian;
-                                    // document.getElementById("mexican").checked=data.mexican;
-                                    // console.log(document.getElementById("western").checked)
-                                    // // $('input[id=western]').attr('checked',data.western);
-                                  })
+
 
                                 function showError(error)
                                   {

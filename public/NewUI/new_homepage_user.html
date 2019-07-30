@@ -49,6 +49,14 @@
         console.log("change username");
         document.getElementById("user_name").innerHTML=data.username;
       })
+
+      $.get("/numOfUser", (data)=>{
+        console.log('q')
+        console.log(data.numUsers);
+        document.getElementById("num_users").innerHTML=data.numUsers;
+      })
+
+
     }
 </script>
 <body class="sticky-header" onload="changeName()">
@@ -185,7 +193,7 @@
                                 <span class=" fa fa-angle-down"></span>
                             </a>
                             <ul class="dropdown-menu dropdown-usermenu purple pull-right">
-                                <li><a href="form-validation.html">  Profile</a></li>
+                                <li><a href="form-validation_user.html">  Profile</a></li>
 
 
                                 <form id = 'logout_form' action="../logout">
@@ -249,11 +257,11 @@
                                 <i class="fa fa-send"></i>
                             </div>
                             <div class="value gray">
-                                <h1 class="purple-color timer" data-from="0" data-to="5"
+                                <h1 id = 'num_users' data-from="0" data-to="5"
                                     data-speed="1000">
                                     <!--123-->
                                 </h1>
-                                <p>Users Online</p>
+                                <p>Users Nearby</p>
                             </div>
                         </section>
                     </div>

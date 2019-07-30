@@ -11,7 +11,7 @@ const sessionFiles = require('session-file-store')(session)
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: true
+  //ssl: true
 });
 
 var app = express()
@@ -106,6 +106,11 @@ express()
                 username:result.rows[0].username,
                 email:result.rows[0].email,
                 isadmin:result.rows[0].isadmin,//true
+                western:result.rows[0].western,
+                europe:result.rows[0].europe,
+                asia:result.rows[0].asia,
+                indian:result.rows[0].indian,
+                mexican:result.rows[0].mexican,
               }
               //req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
@@ -123,7 +128,12 @@ express()
             req.session.myUser = {
               username:result.rows[0].username,
               email:result.rows[0].email,
-              isadmin:result.rows[0].isadmin//false
+              isadmin:result.rows[0].isadmin, //false
+              western:result.rows[0].western,
+              europe:result.rows[0].europe,
+              asia:result.rows[0].asia,
+              indian:result.rows[0].indian,
+              mexican:result.rows[0].mexican,
               //and any other info useful
             }
             res.redirect('/NewUI/new_homepage_user.html')
@@ -165,7 +175,12 @@ express()
           req.session.myUser = {
             username:req.query.username,
             email:req.query.email,
-            isadmin:false//false
+            isadmin:false,//false
+            western:req.query.western,
+            europe:req.query.europe,
+            asia:req.query.asia,
+            indian:req.query.indian,
+            mexican:req.query.mexican,
             //and any other info useful
           }
           //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
@@ -198,12 +213,90 @@ express()
     var myUser = req.session.myUser
     if(myUser){
       console.log("send username:"+myUser.username)
-      res.send({username:myUser.username})
+      res.send(myUser)
     }
     else {
       console.log("user not logged in")
       res.send({username:"None"})
     }
+  })
+
+  .get('/update',async(req, res)=>{
+
+      var myUser = req.session.myUser
+      const client = await pool.connect()
+      var query = "update users set username=($2),western=($3),europe=($4),asia=($5),indian=($6),mexican=($7)"
+      var where = " where email=($1)"
+
+      western= req.query.western==undefined? false:req.query.western
+      europe= req.query.europe ==undefined? false:req.query.europe
+      asia= req.query.asia ==undefined? false:req.query.asia
+      indian= req.query.indian ==undefined? false:req.query.indian
+      mexican= req.query.mexican ==undefined? false:req.query.mexican
+
+      var info = [req.query.email,req.query.username,western,europe,asia,indian,mexican];
+      if (req.query.password != ""){
+        query += ",password=($8)"
+        info.push(req.query.password)
+        }
+        query += where;
+      // console.log(req.query.mexican)
+
+      await client.query(query, info, function(err, result){
+        if (err){
+          console.log("Query error: " + err );
+          res.render('pages/error',{message:"Update failed!"})
+        }
+        else {
+          res.clearCookie()
+          if (myUser.isadmin){
+            req.session.regenerate((err)=>{
+                if(err){
+                  console.log(err)
+                  res.render('pages/error',{message:"Cookie function fail"})
+                }
+              })
+              req.session.myUser = {
+                username:req.query.username,
+                email:req.query.email,
+                isadmin:true,//true
+                western:req.query.western,
+                europe:req.query.europe,
+                asia:req.query.asia,
+                indian:req.query.indian,
+                mexican:req.query.mexican,
+              }
+            console.log("Update succeed")
+            res.redirect('/NewUI/form-validation.html')
+            client.release();
+          }
+          else {
+            res.clearCookie()
+            req.session.regenerate((err)=>{
+                if(err){
+                  console.log(err)
+                  res.render('pages/error',{message:"Cookie function fail"})
+                }
+              })
+              req.session.myUser = {
+                username:req.query.username,
+                email:req.query.email,
+                isadmin:false,//true
+                western:req.query.western,
+                europe:req.query.europe,
+                asia:req.query.asia,
+                indian:req.query.indian,
+                mexican:req.query.mexican,
+              }
+            console.log("Update succeed")
+            res.redirect('/NewUI/form-validation_user.html')
+            client.release();
+          }
+
+        }
+        res.end()
+      })
+
   })
 
   .get('/sendLocation', async (req, res)=>{
@@ -251,6 +344,91 @@ express()
       res.redirect('/')
     })
   })
+
+  .get('/numOfUser', async (req, res)=>{
+    // console.log('1');
+    var myUser = req.session.myUser
+    if(myUser){
+      // console.log('2');
+      const client = await pool.connect();
+
+      var query = "select * from users where email = ($1)"
+      var info = [myUser.email]
+      const result = await client.query(query, info)
+      //const results = {'results':(result)? result.rows:null}
+      var query2 = "select * from users"
+      const result2 = await client.query(query2, [])
+      // console.log('3');
+      //const results2 = {'results':(result)? result.rows:null}
+      var x = result.rows[0].x
+      var y = result.rows[0].y
+      var num=0;
+      if(result && result2){
+        for (var i=0; i<result2.rows.length; i++){
+          if (result2.rows[i].x && result2.rows[i].y){
+            X = result2.rows[i].x
+            Y = result2.rows[i].y
+            if (Math.sqrt((X-x)*(X-x)+(Y-y)*(Y-y))<1){
+              num++;
+            }
+          }
+        }
+      }
+      if (num!=0){
+        num--;
+      }
+      res.send({numUsers:num})
+    }
+    else {
+      console.log("user not logged in")
+      res.send(null)
+    }
+  })
+
+  .get('/nearbyUserList', async (req, res)=>{
+    // console.log('1');
+    var myUser = req.session.myUser
+    if(myUser){
+      // console.log('2');
+      const client = await pool.connect();
+
+      var query = "select * from users where not (email=($1))"
+      var info = [myUser.email]
+      const result = await client.query(query, info)
+      //const results = {'results':(result)? result.rows:null}
+
+      res.send({userList:result.rows})
+    }
+    else {
+      console.log("user not logged in")
+      res.send(null)
+    }
+  })
+
+  .get('/nearbyUsers', async (req, res)=>{
+    console.log('1')
+    var myUser = req.session.myUser
+    if(myUser){
+      const client = await pool.connect()
+
+      var query = "select x,y,username from users where not (email=($1))"
+      var info = [myUser.email]
+      const result = await client.query(query, info)
+      if(result){
+        res.send({users:result.rows})
+      }
+      else{
+        res.send(null)
+      }
+
+    }
+    else {
+      console.log("user not logged in")
+      res.send(null)
+    }
+  })
+
+
 
   .get('/deleteUser', async (req,res)=>{
     try{
