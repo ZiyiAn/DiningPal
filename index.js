@@ -106,6 +106,11 @@ express()
                 username:result.rows[0].username,
                 email:result.rows[0].email,
                 isadmin:result.rows[0].isadmin,//true
+                western:result.rows[0].western,
+                europe:result.rows[0].europe,
+                asia:result.rows[0].asia,
+                indian:result.rows[0].indian,
+                mexican:result.rows[0].mexican,
               }
               //req.session.allUsers = { 'results': (result) ? result.rows : null}
               //console.log(results)
@@ -123,7 +128,12 @@ express()
             req.session.myUser = {
               username:result.rows[0].username,
               email:result.rows[0].email,
-              isadmin:result.rows[0].isadmin//false
+              isadmin:result.rows[0].isadmin, //false
+              western:result.rows[0].western,
+              europe:result.rows[0].europe,
+              asia:result.rows[0].asia,
+              indian:result.rows[0].indian,
+              mexican:result.rows[0].mexican,
               //and any other info useful
             }
             res.redirect('/NewUI/new_homepage_user.html')
@@ -165,7 +175,12 @@ express()
           req.session.myUser = {
             username:req.query.username,
             email:req.query.email,
-            isadmin:false//false
+            isadmin:false,//false
+            western:req.query.western,
+            europe:req.query.europe,
+            asia:req.query.asia,
+            indian:req.query.indian,
+            mexican:req.query.mexican,
             //and any other info useful
           }
           //var userinfo = {username:req.query.username, password:req.query.password, email:req.query.email, isadmin:false}
@@ -206,26 +221,83 @@ express()
     }
   })
 
-  // .get('/update',async(req, res)=>{
-  //   try{
-  //     var myUser = req.session.myUser
-  //     const client = await pool.connect()
-  //     var query = "update users set username=($1),password=($2) where email=($3)";
+  .get('/update',async(req, res)=>{
+    
+      var myUser = req.session.myUser
+      const client = await pool.connect()
+      var query = "update users set username=($2),western=($3),europe=($4),asia=($5),indian=($6),mexican=($7)"
+      var where = " where email=($1)"
 
-  //     var info = [req.query.username, req.query.password, myUser.email];
-  //     await client.query(query, info, function(err, result){
-  //       if (err){
-  //         console.log("Query error: " + err );
-  //         res.render('pages/error',{message:"Update failed!"})
-  //       }
-  //       else {
-  //         console.log("Update succeed")
-  //         res.redirect('/NewUI/form-validation.html')
-  //         client.release();
-  //       }
-  //       res.end()
+      western= req.query.western==undefined? false:req.query.western
+      europe= req.query.europe ==undefined? false:req.query.europe
+      asia= req.query.asia ==undefined? false:req.query.asia
+      indian= req.query.indian ==undefined? false:req.query.indian
+      mexican= req.query.mexican ==undefined? false:req.query.mexican
 
-  // })
+      var info = [req.query.email,req.query.username,western,europe,asia,indian,mexican];
+      if (req.query.password != ""){
+        query += ",password=($8)"
+        info.push(req.query.password) 
+        }
+        query += where;
+      // console.log(req.query.mexican)
+      
+      await client.query(query, info, function(err, result){
+        if (err){
+          console.log("Query error: " + err );
+          res.render('pages/error',{message:"Update failed!"})
+        }
+        else {
+          res.clearCookie()
+          if (myUser.isadmin){
+            req.session.regenerate((err)=>{
+                if(err){
+                  console.log(err)
+                  res.render('pages/error',{message:"Cookie function fail"})
+                }
+              })
+              req.session.myUser = {
+                username:req.query.username,
+                email:req.query.email,
+                isadmin:true,//true
+                western:req.query.western,
+                europe:req.query.europe,
+                asia:req.query.asia,
+                indian:req.query.indian,
+                mexican:req.query.mexican,
+              }
+            console.log("Update succeed")
+            res.redirect('/NewUI/form-validation.html')
+            client.release();
+          }
+          else {
+            res.clearCookie()
+            req.session.regenerate((err)=>{
+                if(err){
+                  console.log(err)
+                  res.render('pages/error',{message:"Cookie function fail"})
+                }
+              })
+              req.session.myUser = {
+                username:req.query.username,
+                email:req.query.email,
+                isadmin:false,//true
+                western:req.query.western,
+                europe:req.query.europe,
+                asia:req.query.asia,
+                indian:req.query.indian,
+                mexican:req.query.mexican,
+              }
+            console.log("Update succeed")
+            res.redirect('/NewUI/form-validation_user.html')
+            client.release();
+          }
+          
+        }
+        res.end()
+      })
+    
+  })
 
   .get('/sendLocation', async (req, res)=>{
     var myUser = req.session.myUser

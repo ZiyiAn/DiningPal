@@ -34,14 +34,23 @@
     function changeName(){
       $.get("/getUsername", (data)=>{
         console.log("change username");
+        console.log(data.western)
+          console.log(data.europe)
+          console.log(data.asia)
+          console.log(data.indian)
+          console.log(data.mexican)
+          console.log(typeof data.mexican)
+          console.log(document.getElementById("western").checked)
         document.getElementById("user_name").innerHTML=data.username;
         document.getElementById("email").value=data.email;
         document.getElementById("username").value=data.username;
-        // document.getElementById("western").checked=data.western;
-        // document.getElementById("europe").checked=data.europe;
-        // document.getElementById("asia").checked=data.asia;
-        // document.getElementById("indian").checked=data.indian;
-        // document.getElementById("mexican").checked=data.mexican;
+        document.getElementById("western").checked=data.western;
+        document.getElementById("europe").checked=data.europe;
+        document.getElementById("asia").checked=data.asia;
+        document.getElementById("indian").checked=data.indian;
+        document.getElementById("mexican").checked=data.mexican;
+        console.log(document.getElementById("western").checked)
+        // $('input[id=western]').attr('checked',data.western);
       })
     }
 </script>
@@ -311,24 +320,12 @@
                             </header>
                             <div class="panel-body">
                                 <div class="form">
-                                    <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="">
-                                        <!-- <div class="form-group ">
-                                            <label for="firstname" class="control-label col-lg-2">Firstname *</label>
-                                            <div class="col-lg-10">
-                                                <input class=" form-control" id="firstname" name="firstname" type="text" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group ">
-                                            <label for="lastname" class="control-label col-lg-2">Lastname  *</label>
-                                            <div class="col-lg-10">
-                                                <input class=" form-control" id="lastname" name="lastname" type="text" />
-                                            </div>
-                                        </div> -->
-
+                                    <form class="cmxform form-horizontal tasi-form" method='GET' action="../update">
+ 
                                         <div class="form-group ">
                                             <label for="username" class="control-label col-lg-2">Username *</label>
                                             <div class="col-lg-10">
-                                                <input class="form-control " id="username" name="username" type="text" placeholder="" />
+                                                <input class="form-control " id="username" name="username" type="text" />
                                             </div>
                                         </div>
                                         <div class="form-group ">
@@ -349,41 +346,36 @@
                                                 <input class="form-control " id="email" name="email" type="email" readonly/>
                                             </div>
                                         </div>
-                                        <!-- <div class="form-group ">
-                                            <label for="agree" class="control-label m-t-less-6 col-lg-2 col-sm-3">Agree to Our Policy *</label>
-                                            <div class="col-lg-10 col-sm-9 chk-fv">
-                                                <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="agree" name="agree" />
-                                            </div>
-                                        </div> -->
+
                                         <div class="form-group">
                                             <label for="Western" class="control-label m-t-less-6 col-lg-2 col-sm-3">Western</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Western" name="Western"/>
+                                            <input  type="checkbox" style="width: 20px" id="western" name="western"/>
                                             </div>
                                             <!-- </div> -->
                                             <label for="Europe" class="control-label m-t-less-6 col-lg-2 col-sm-3">Europe</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Europe" name="Europe" />
+                                            <input  type="checkbox" style="width: 20px" id="europe" name="europe" />
                                             </div>
 
                                             <label for="Asia" class="control-label m-t-less-6 col-lg-2 col-sm-3">Asia</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Asia" name="Asia" />
+                                            <input  type="checkbox" style="width: 20px" id="asia" name="asia" />
                                             </div>
 
                                             <label for="Indian" class="control-label m-t-less-6 col-lg-2 col-sm-3">Indian</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Indian" name="Indian" />
+                                            <input  type="checkbox" style="width: 20px" id="indian" name="indian" />
                                             </div>
 
                                             <label for="Mexican" class="control-label m-t-less-6 col-lg-2 col-sm-3">Mexican</label>
                                             <!-- <div class="col-lg-10 col-sm-9 chk-fv"> -->
                                             <div style="float: left">
-                                            <input  type="checkbox" style="width: 20px" class="checkbox form-control iCheck" id="Mexican" name="Mexican" />
+                                            <input  type="checkbox" style="width: 20px" id="mexican" name="mexican" />
                                             </div>
 
                                         </div>
