@@ -1,4 +1,6 @@
 var chai = require('chai');
+var sinon  = require('sinon');
+var assert = require('assert');
 var chaiHttp = require('chai-http');
 var server = require('../index.js');
 var should = chai.should();
@@ -12,6 +14,30 @@ describe('Users', function(){
     .get('/')
     .end(function(err, res){
       res.should.redirectTo("localhost:5000/startpage.html");
+      done();
+    });
+  });
+
+  it('should redirect to startpage when / and login with regular user', function(done){
+    chai.request(server)
+    .get('/signin')
+    .send({email:"test1@sfu.ca", password:"123"})
+    //.send({email:"test1@sfu.ca", password:"123"})
+    .get('/')
+    .end(function(err, res){
+      res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
+      done();
+    });
+  });
+
+  it('should redirect to startpage when / and login with admin user', function(done){
+    chai.request(server)
+    .get('/signin')
+    .send({email:"cza94@sfu.ca", password:"segfault"})
+    //.send({email:"test1@sfu.ca", password:"123"})
+    .get('/')
+    .end(function(err, res){
+      res.should.redirectTo("localhost:5000/NewUI/new_homepage.html");
       done();
     });
   });
@@ -39,6 +65,8 @@ describe('Users', function(){
   it('should redirect to startpage when logging out', function(done){
     chai.request(server)
     //.send({email:"test1@sfu.ca", password:"123"})
+    .get('/signin')
+    .send({email:"cza94@sfu.ca", password:"segfault"})
     .get('/logout')
     .end(function(err, res){
       res.should.redirectTo("localhost:5000/startpage.html");
@@ -86,7 +114,51 @@ describe('Users', function(){
     });
   });
 
+  it('should redirect to User Data Page when render database and session.isadmin', function(done){
+    chai.request(server)
+    .get('/database')
+    .send({session:{myUser:{isadmin:true}}})
+    .end(function(err, res){
+      res.should.redirectTo("localhost:5000/database?");
+      done();
+    });
+  });
 
+  it('should redirect to / when render database and !session.isadmin', function(done){
+    chai.request(server)
+    .get('/database')
+    .send({session:{myUser:{isadmin:false}}})
+    .end(function(err, res){
+      res.should.redirectTo("localhost:5000");
+      done();
+    });
+  });
+
+  it('should delete user and redirect to database when delete user', function(done){
+    let spy = sinon.spy(console, 'log');
+    chai.request(server)
+    .get('/deleteUser')
+    .send({query:{email:'test1'}})
+    .end(function(err, res){
+      assert(spy.calledWith("delete succeed"));
+      res.should.redirectTo("localhost:5000/database");
+      spy.restore();
+      done();
+    });
+  });
+
+  it('should send location to database when loginned and call /sendLocation', function(done){
+    let spy = sinon.spy(console, 'log');
+    chai.request(server)
+    .get('/signin')
+    .send({email:"cza94@sfu.ca", password:"segfault"})
+    .end(function(err, res){
+      assert(spy.calledWith("location update succeed"));
+      //res.should.redirectTo("localhost:5000/database");
+      spy.restore();
+      done();
+    });
+  });
   // it('should add a single user on POST /users', function(done){
   //   chai.request(server).get('/users').end(function(err, res){ // assume this gets array of all users
   //     var num_user = res.body.length;
