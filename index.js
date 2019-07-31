@@ -11,6 +11,7 @@ const sessionFiles = require('session-file-store')(session)
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
+  
   ssl: true
 });
 
