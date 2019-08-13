@@ -11,7 +11,8 @@ describe('Users', function(){
     //.send({email:"test1@sfu.ca", password:"123"})
     .get('/')
     .end(function(err, res){
-      res.should.redirectTo("localhost:5000/startpage.html");
+      //res.should.redirectTo("localhost:5000/startpage.html");
+      assert.equal(res.redirects[0],"localhost:5000/startpage.html");
       done();
     });
   });
@@ -21,7 +22,8 @@ describe('Users', function(){
     //.send({email:"test1@sfu.ca", password:"123"})
     .get('/home')
     .end(function(err, res){
-      res.should.redirectTo("localhost:5000/startpage.html");
+      //res.should.redirectTo("localhost:5000/startpage.html");
+      assert.equal(res.redirects[0],"localhost:5000/startpage.html");
       done();
     });
   });
@@ -31,7 +33,8 @@ describe('Users', function(){
     .post('/signin')
     .send({email:"test1@sfu.ca", password:"123"})
     .end(function(err, res){
-      res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
+      //res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
+      assert.equal(res.redirects[0],"localhost:5000/NewUI/new_homepage_user.html");
       done();
     });
   });
@@ -41,7 +44,8 @@ describe('Users', function(){
     //.send({email:"test1@sfu.ca", password:"123"})
     .get('/logout')
     .end(function(err, res){
-      res.should.redirectTo("localhost:5000/startpage.html");
+      //res.should.redirectTo("localhost:5000/startpage.html");
+      assert.equal(res.redirects[0],"localhost:5000/startpage.html");
       done();
     });
   });
@@ -51,7 +55,8 @@ describe('Users', function(){
     .post('/signin')
     .send({email:"cza94@sfu.ca", password:"segfault"})
     .end(function(err, res){
-      res.should.redirectTo("localhost:5000/NewUI/new_homepage.html");
+      //res.should.redirectTo("localhost:5000/NewUI/new_homepage.html");
+      assert.equal(res.redirects[0],"localhost:5000/NewUI/new_homepage.html");
       done();
     });
   });
@@ -61,7 +66,8 @@ describe('Users', function(){
     .post('/signup')
     .send({username:"tester", email:"tester@sfu.ca", password:"123"})
     .end(function(err, res){
-      res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
+      //res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
+      assert.equal(res.redirects[0],'localhost:5000/NewUI/new_homepage_user.html');
       done();
     });
   });
