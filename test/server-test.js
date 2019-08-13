@@ -2,7 +2,8 @@ var chai = require('chai');
 var chaiHttp = require('chai-http');
 var server = require('https://Localhost:5000');
 var should = chai.should();
-
+var assert = require('assert'),
+    
 chai.use(chaiHttp);
 
 describe('Users', function(){
@@ -77,7 +78,7 @@ describe('Users', function(){
     //.send({username:"tester", email:"tester@sfu.ca", password:"123"})
     .get('/checkLogin')
     .end(function(err, res){
-      chai.assert.equal(res.isLogin, false);
+      assert.equal(res.isLogin, false);
       done();
     });
   });
@@ -87,7 +88,7 @@ describe('Users', function(){
     //.send({username:"tester", email:"tester@sfu.ca", password:"123"})
     .get('/getUsername')
     .end(function(err, res){
-      chai.assert.equal(res.username, "None");
+      assert.equal(res.username, "None");
       done();
     });
   });
