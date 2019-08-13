@@ -1,6 +1,6 @@
 var chai = require('chai');
 var chaiHttp = require('chai-http');
-var server = require('../index.js');
+var server = require('Localhost:5000');
 var should = chai.should();
 
 chai.use(chaiHttp);
@@ -28,7 +28,7 @@ describe('Users', function(){
 
   it('should redirect to new user HomePage when user login', function(done){
     chai.request(server)
-    .get('/signin')
+    .post('/signin')
     .send({email:"test1@sfu.ca", password:"123"})
     .end(function(err, res){
       res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
@@ -48,7 +48,7 @@ describe('Users', function(){
 
   it('should redirect to new admin HomePage when admin login', function(done){
     chai.request(server)
-    .get('/signin')
+    .post('/signin')
     .send({email:"cza94@sfu.ca", password:"segfault"})
     .end(function(err, res){
       res.should.redirectTo("localhost:5000/NewUI/new_homepage.html");
@@ -58,7 +58,7 @@ describe('Users', function(){
 
   it('should redirect to new user HomePage when user sign up', function(done){
     chai.request(server)
-    .get('/signup')
+    .post('/signup')
     .send({username:"tester", email:"tester@sfu.ca", password:"123"})
     .end(function(err, res){
       res.should.redirectTo("localhost:5000/NewUI/new_homepage_user.html");
