@@ -1,8 +1,9 @@
 # CMPT276 group project
-Team members: Ziyi An
-              Chen Zhao
-              George He
-              Ming Wang
+Team members: 
+Ziyi An
+Chen Zhao
+George He
+Ming Wang
               
 Background
 
